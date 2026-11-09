@@ -51,6 +51,8 @@
 - Вход: Google (popup, работает только с сайта; домен vercel должен быть в Firebase → Authentication → Settings → Authorized domains), osu! (OAuth client id 74801 → Vercel-функция `api/osu/callback.js` выпускает Firebase custom token; `CFG.osuWorker` = https://gacha-on-osu.vercel.app/api/osu; секреты — в Vercel Environment Variables). Cloudflare Worker (`server/`) не используется: `*.workers.dev` заблокирован в РФ. **Client Secret osu! никогда не класть в код/репо.**
 - Firestore: `players/{uid}` (публичный профиль: name, bp=сумма BP команды, power, team, rating), `players/{uid}/private/save` (облачное сохранение), `market/{id}` (лоты, status open→sold, claimed). Правила — `firestore.rules`.
 - Резервная публикация на Firebase Hosting: `.github/workflows/deploy.yml` (только вручную, секрет `FIREBASE_SERVICE_ACCOUNT`).
+## Логотип
+- `assets/` (logo.png оригинал без фона, logo-512.webp вшит base64 в CSS `.logo`, favicon-64.png вшит, icon-180.png и og.png отдаются с Vercel). Где: favicon, шапка, главная (hero), заставка загрузки `#splash`, окно аккаунта, og-превью ссылки.
 ## Прочее (v6)
 - Валюта: `S.gems` отображается как **PP (Ⓟ)**. Локация «PP-фарм карты» (последняя в `LOCS`, сортировка по уровню при выводе).
 - Баннеры профилей: `data/covers.txt` (uid36 \t хэш.ext или p<preset>/хэш.ext), ~10.5 тыс. игроков рангов A+ и B; остальным `genBg()`.

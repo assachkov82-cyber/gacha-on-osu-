@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>osu! Gacha Tower</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,/*FAVICON*/">
+<link rel="apple-touch-icon" href="https://gacha-on-osu.vercel.app/assets/icon-180.png">
+<meta name="theme-color" content="#070707">
+<meta name="description" content="Гача-RPG с 376 000 реальных игроков osu!: собирай команду, проходи Башню, торгуй на рынке.">
+<meta property="og:title" content="osu! Gacha Tower"><meta property="og:description" content="Гача-RPG с реальными игроками osu!"><meta property="og:image" content="https://gacha-on-osu.vercel.app/assets/og.png"><meta property="og:url" content="https://gacha-on-osu.vercel.app/"><meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--bg:#070707;--p1:#111;--p2:#1a1a1a;--ln:#2b2b2b;--tx:#f5f5f5;--mu:#8a8a8a;--red:#ff1f3d;--pink:#ff5fa2;--lp:#ffb3d1;--grad:linear-gradient(90deg,#ff1f3d,#ff5fa2)}
 *{box-sizing:border-box}
@@ -130,16 +135,26 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
 .feat{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.feat .card{width:130px}
 @media(max-width:700px){nav{flex-wrap:nowrap;overflow-x:auto;padding:8px}nav button{flex:0 0 auto;min-width:auto;font-size:12px;padding:8px 10px}header{padding:8px 10px}h1{font-size:17px}.res span{font-size:11px;padding:3px 6px}
  .grid{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}.mbox{padding:14px}.cban{margin:-14px -14px 0}.panel{padding:12px}main{padding:0 10px 30px}.big{font-size:22px}.up{grid-template-columns:1fr 1fr}}
+
+.logo{background:url("data:image/webp;base64,/*LOGO*/") center/contain no-repeat}
+.hlogo{width:54px;height:56px;flex:0 0 auto;filter:drop-shadow(0 0 8px #ff1f3d88)}header>div:first-child{display:flex;align-items:center;gap:10px}
+.hero{display:flex;gap:20px;align-items:center}.hero .logo{width:220px;height:230px;flex:0 0 auto;filter:drop-shadow(0 0 24px #ff1f3d66);animation:lgf 4s ease-in-out infinite}@keyframes lgf{50%{transform:translateY(-6px)}}
+#splash{position:fixed;inset:0;z-index:100;background:#070707;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .4s}#splash .logo{width:min(300px,70vw);height:min(314px,73vw);animation:lgp 1.4s ease-in-out infinite}
+@keyframes lgp{50%{transform:scale(1.04);filter:drop-shadow(0 0 30px #ff1f3d)}}#splash .bar{width:200px;height:4px;background:#222;overflow:hidden}#splash .bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,#ff1f3d,#ff5fa2);animation:spl 1s linear infinite}@keyframes spl{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+.mlogo{width:120px;height:126px;margin:0 auto 6px}
+@media(max-width:700px){.hero{flex-direction:column;text-align:center}.hero .logo{width:170px;height:178px}.hlogo{width:40px;height:42px}header h1{display:none}}
 </style>
 </head>
 <body>
-<header><div><h1><b>osu!</b> gacha <i>tower</i></h1><div class="mu" style="font-size:11px;text-transform:uppercase;letter-spacing:1px">Аккаунт ур. <b id="alv" style="color:#fff">1</b><div class="xpb"><i id="axp"></i></div><div style="margin-top:3px">Прохождение <b id="hdrPct" style="color:var(--pink)">0%</b></div></div></div>
+<div id="splash"><div class="logo"></div><div class="bar"><i></i></div><div style="color:#8a8a8a;font:700 12px sans-serif;letter-spacing:2px">LOADING…</div></div>
+<script>setTimeout(function(){var s=document.getElementById("splash");if(s)s.remove()},15000)</script>
+<header><div><div class="logo hlogo"></div><div><h1><b>osu!</b> gacha <i>tower</i></h1><div class="mu" style="font-size:11px;text-transform:uppercase;letter-spacing:1px">Аккаунт ур. <b id="alv" style="color:#fff">1</b><div class="xpb"><i id="axp"></i></div><div style="margin-top:3px">Прохождение <b id="hdrPct" style="color:var(--pink)">0%</b></div></div></div></div>
 <div class="res"><span title="PP">Ⓟ <b id="gems">0</b></span><span title="Золото">🪙 <b id="gold">0</b></span><span title="Энергия">⚡ <b id="sta">0</b></span><span title="Ключи данжей">🗝 <b id="keys">0</b></span><span title="Книги навыков">📘 <b id="books">0</b></span><span title="Суммарный BP команды">BP <b id="pw">0</b></span></div><div class="hdr2"><select id="langSel" title="Язык"><option value="ru">RU</option><option value="en">EN</option><option value="es">ES</option></select><button class="sm" id="acctBtn">👤 Войти</button></div></header>
 <nav id="nav"></nav>
 <main>
 <section id="s-home">
- <div class="panel"><div class="big">Добро пожаловать</div><p class="mu">Более 300 000 реальных игроков osu! (osu!, taiko, catch, mania) с аватарками и баннерами с osu.ppy.sh. Ранг зависит от популярности и места в рейтинге, BP (Base Power) — базовая сила игрока. Собирай пятёрку, качай, проходи данжи, локации и Башню.</p>
- <div class="row"><button id="dailyBtn">🎁 Ежедневная награда</button><span id="dailyInfo" class="mu"></span><button id="refill" class="sec">⚡ Энергия (Ⓟ50)</button><span class="mu">+1 ⚡ каждые 3 мин · ключи данжей обновляются каждый день</span></div></div>
+ <div class="panel hero"><div class="logo"></div><div><div class="big">Добро пожаловать</div><p class="mu">Более 300 000 реальных игроков osu! (osu!, taiko, catch, mania) с аватарками и баннерами с osu.ppy.sh. Ранг зависит от популярности и места в рейтинге, BP (Base Power) — базовая сила игрока. Собирай пятёрку, качай, проходи данжи, локации и Башню.</p>
+ <div class="row"><button id="dailyBtn">🎁 Ежедневная награда</button><span id="dailyInfo" class="mu"></span><button id="refill" class="sec">⚡ Энергия (Ⓟ50)</button><span class="mu">+1 ⚡ каждые 3 мин · ключи данжей обновляются каждый день</span></div></div></div>
  <div class="panel"><h3>Ваша команда</h3><div class="team" id="homeTeam"></div><p class="mu">Боевая сила: <b id="pw2" style="color:#fff"></b> · Синергия: <b id="syn" style="color:var(--pink)"></b></p></div>
  <div class="panel"><h3>Инвентарь</h3><div class="mats" id="inv"></div></div>
  <div class="panel evbox" id="evBox"></div>
@@ -665,7 +680,7 @@ async function cloudLoad(){const u=me();if(!u)return;try{const s=await FB.F.getD
  if(!confirm(tr("Загрузить облачное сохранение? Текущий прогресс на этом устройстве будет заменён.")))return;S=Object.assign(fresh(),JSON.parse(s.data().d));sanitize();save();render();toast("Загружено из облака")}catch(e){toast(tr("Ошибка")+": "+(e.code||e.message))}}
 async function cloudSave(){if(!me())return;pushT=0;await pushProfile(true);toast("Сохранено в облако")}
 function renderAcct(){const b=$("acctBtn");if(!b)return;const u=me();b.innerHTML=u?`${u.photoURL?`<img src="${esc(u.photoURL)}" alt="">`:"👤"} ${esc(myName())}`:"👤 Войти";if(LANG!=="ru")trNode(b)}
-function showAcct(){const u=me();$("mbox").innerHTML=`<h3>Аккаунт</h3>${u?`<p>Вы вошли как <b>${esc(myName())}</b></p><div class="row" style="justify-content:center"><button id="cSave">☁ Сохранить в облако</button><button id="cLoad" class="sec">☁ Загрузить из облака</button><button id="lgOut" class="sec">Выйти</button></div>`
+function showAcct(){const u=me();$("mbox").innerHTML=`<div class="logo mlogo"></div><h3>Аккаунт</h3>${u?`<p>Вы вошли как <b>${esc(myName())}</b></p><div class="row" style="justify-content:center"><button id="cSave">☁ Сохранить в облако</button><button id="cLoad" class="sec">☁ Загрузить из облака</button><button id="lgOut" class="sec">Выйти</button></div>`
  :`<p class="mu">Вход нужен для Рынка, Топа, Арены против живых игроков и облачного сохранения.</p><div class="row" style="justify-content:center"><button id="lgG">G · Войти через Google</button><button id="lgO" class="pink">osu! · Войти через osu!</button></div>`}
  <h3 style="margin-top:18px">Настройки</h3><div class="row" style="justify-content:center"><label>Язык <select id="langSel2">${Object.entries(LANGS).map(([k,v])=>`<option value="${k}" ${LANG===k?"selected":""}>${v}</option>`).join("")}</select></label>
  <label><input type="checkbox" id="pSfx" ${PREF.sfx?"checked":""}> Звук</label><label><input type="checkbox" id="pMus" ${PREF.mus?"checked":""}> Музыка</label><label>Громкость <input type="range" id="pVol" min="0" max="100" value="${Math.round(PREF.vol*100)}"></label></div>
@@ -822,7 +837,7 @@ window.addEventListener("error",e=>toast("Ошибка: "+e.message));
 setInterval(()=>{if(!inBattle){const s=S.sta;tickSta();if(s!==S.sta){save();hdr()}}},20000);
 $("acctBtn").onclick=showAcct;$("openAcct").onclick=showAcct;$("langSel").onchange=e=>setLang(e.target.value);
 $("mktSellC").onclick=sellCardUI;$("mktSellI").onclick=sellItemUI;$("mktRef").onclick=renderMarket;$("topRef").onclick=()=>{topCache=null;renderTop()};$("arRef").onclick=()=>{arenaOpp=null;renderArena()};
-load();render();save();renderAcct();
+load();render();save();renderAcct();{const sp=$("splash");if(sp){sp.style.opacity=0;setTimeout(()=>sp.remove(),450)}}
 i18nObs.observe(document.body,{childList:true,subtree:true,characterData:true});setLang(PREF.lang);
 if(CFG.firebase&&isWeb())fbInit().then(()=>osuReturn()).catch(e=>console.warn("firebase",e));
 </script>
