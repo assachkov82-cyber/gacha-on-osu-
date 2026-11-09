@@ -13,7 +13,7 @@ h1{margin:0;font-size:22px;font-style:italic;font-weight:900;letter-spacing:1px;
 h3{margin:2px 0 12px;text-transform:uppercase;letter-spacing:2px;font-size:15px;border-left:4px solid var(--red);padding-left:8px}
 .res{display:flex;gap:4px;flex-wrap:wrap}.res span{background:var(--p2);border:1px solid var(--ln);padding:4px 9px;font-weight:700;font-size:13px}
 .xpb{width:140px;height:4px;background:#333;margin-top:4px}.xpb i{display:block;height:100%;background:var(--grad)}
-nav{display:flex;gap:2px;flex-wrap:wrap;padding:10px 16px;max-width:1240px;margin:auto}nav button{flex:1;min-width:88px;clip-path:none;background:var(--p2);border:1px solid var(--ln)}nav button.on{background:var(--grad);border-color:transparent}
+nav{display:flex;gap:2px;flex-wrap:wrap;padding:10px 16px;max-width:1240px;margin:auto}nav button{flex:1;min-width:64px;padding:9px 6px;font-size:12px;clip-path:none;background:var(--p2);border:1px solid var(--ln)}nav button.on{background:var(--grad);border-color:transparent}
 button{background:var(--red);color:#fff;border:0;padding:9px 14px;font-weight:800;cursor:pointer;font-size:13px;text-transform:uppercase;letter-spacing:.5px;transition:.12s;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
 button:hover:not(:disabled){background:var(--pink);transform:translateY(-1px)}button:disabled{opacity:.3;cursor:not-allowed}
 button.sec{background:#fff;color:#000}button.sec:hover:not(:disabled){background:var(--lp)}button.pink{background:var(--pink)}button.sm{padding:5px 10px;font-size:11px}
@@ -114,25 +114,40 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
 .dlist{display:grid;gap:3px;font-size:12px}.dlist div{display:flex;justify-content:space-between;gap:8px;background:var(--p2);padding:4px 8px}.dlist .no{color:var(--mu)}
 @media(max-width:700px){.ready2{grid-template-columns:1fr}}
 @media(max-width:900px){.arMain{grid-template-columns:1fr}.arSide{border-left:0;border-top:1px solid var(--ln)}.stage{min-height:520px}.unit{width:100px;padding:5px}.unit img{width:56px;height:56px}.usk{display:none}}
+
+.card{padding:0 6px 6px}.card .cv{position:absolute;left:0;right:0;top:0;height:58px;background:#1a1a1a center/cover no-repeat}.card .cv::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,#0c0c0c)}
+.card img{position:relative;width:70%;margin:22px auto 0;border:2px solid var(--c);box-shadow:0 4px 12px #000}.card .sk2{font-size:10px;color:var(--lp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}.card .ps2{font-size:10px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .rk,.card .lv{z-index:2}.card.inteam::after{z-index:2}
+.cban{height:130px;margin:-20px -20px 0;background:#1a1a1a center/cover;position:relative}.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,var(--p1))}
+.unit{background-size:cover;background-position:center}
+.hdr2{display:flex;gap:6px;align-items:center}#acctBtn{background:#fff;color:#000;display:flex;align-items:center;gap:6px;max-width:190px;overflow:hidden;white-space:nowrap}#acctBtn img{width:20px;height:20px;border-radius:50%}
+#langSel{padding:5px;font-weight:800}
+.bnTabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:10px}.bnTabs button{clip-path:none;background:var(--p2)}.bnTabs button.on{background:var(--grad)}
+.evbox{border-left:5px solid var(--pink);background:linear-gradient(90deg,#ff5fa222,transparent);padding:12px}
+.lots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}.lot{background:var(--p2);padding:10px;border-left:3px solid var(--pink)}
+.lotc{display:flex;gap:10px;align-items:center;background-size:cover;background-position:center;padding:6px;border:1px solid var(--c)}.lotc img{width:56px;height:56px;object-fit:cover}.loti{padding:10px 0;font-size:15px}
+.tteam{display:flex;gap:3px}.tteam img{width:30px;height:30px;object-fit:cover;border:1px solid var(--ln)}tr.meRow{background:#ff5fa222}
+.feat{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.feat .card{width:130px}
+@media(max-width:700px){nav{flex-wrap:nowrap;overflow-x:auto;padding:8px}nav button{flex:0 0 auto;min-width:auto;font-size:12px;padding:8px 10px}header{padding:8px 10px}h1{font-size:17px}.res span{font-size:11px;padding:3px 6px}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}.mbox{padding:14px}.cban{margin:-14px -14px 0}.panel{padding:12px}main{padding:0 10px 30px}.big{font-size:22px}.up{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header><div><h1><b>osu!</b> gacha <i>tower</i></h1><div class="mu" style="font-size:11px;text-transform:uppercase;letter-spacing:1px">Аккаунт ур. <b id="alv" style="color:#fff">1</b><div class="xpb"><i id="axp"></i></div><div style="margin-top:3px">Прохождение <b id="hdrPct" style="color:var(--pink)">0%</b></div></div></div>
-<div class="res"><span title="Гемы">💎 <b id="gems">0</b></span><span title="Золото">🪙 <b id="gold">0</b></span><span title="Энергия">⚡ <b id="sta">0</b></span><span title="Ключи данжей">🗝 <b id="keys">0</b></span><span title="Книги навыков">📘 <b id="books">0</b></span><span title="Суммарный BP команды">BP <b id="pw">0</b></span></div></header>
+<div class="res"><span title="PP">Ⓟ <b id="gems">0</b></span><span title="Золото">🪙 <b id="gold">0</b></span><span title="Энергия">⚡ <b id="sta">0</b></span><span title="Ключи данжей">🗝 <b id="keys">0</b></span><span title="Книги навыков">📘 <b id="books">0</b></span><span title="Суммарный BP команды">BP <b id="pw">0</b></span></div><div class="hdr2"><select id="langSel" title="Язык"><option value="ru">RU</option><option value="en">EN</option><option value="es">ES</option></select><button class="sm" id="acctBtn">👤 Войти</button></div></header>
 <nav id="nav"></nav>
 <main>
 <section id="s-home">
- <div class="panel"><div class="big">Добро пожаловать</div><p class="mu">Более 300 000 реальных игроков osu! (osu!, taiko, catch, mania) с аватарками с osu.ppy.sh. Ранг зависит от популярности и места в рейтинге, BP (Base Power) — базовая сила игрока. Собирай пятёрку, качай, проходи данжи, локации и Башню.</p>
- <div class="row"><button id="dailyBtn">🎁 Ежедневная награда</button><span id="dailyInfo" class="mu"></span><button id="refill" class="sec">⚡ Энергия (💎50)</button><span class="mu">+1 ⚡ каждые 3 мин · ключи данжей обновляются каждый день</span></div></div>
+ <div class="panel"><div class="big">Добро пожаловать</div><p class="mu">Более 300 000 реальных игроков osu! (osu!, taiko, catch, mania) с аватарками и баннерами с osu.ppy.sh. Ранг зависит от популярности и места в рейтинге, BP (Base Power) — базовая сила игрока. Собирай пятёрку, качай, проходи данжи, локации и Башню.</p>
+ <div class="row"><button id="dailyBtn">🎁 Ежедневная награда</button><span id="dailyInfo" class="mu"></span><button id="refill" class="sec">⚡ Энергия (Ⓟ50)</button><span class="mu">+1 ⚡ каждые 3 мин · ключи данжей обновляются каждый день</span></div></div>
  <div class="panel"><h3>Ваша команда</h3><div class="team" id="homeTeam"></div><p class="mu">Боевая сила: <b id="pw2" style="color:#fff"></b> · Синергия: <b id="syn" style="color:var(--pink)"></b></p></div>
  <div class="panel"><h3>Инвентарь</h3><div class="mats" id="inv"></div></div>
- <div class="panel"><h3>Готовность проекта</h3><div class="ready2"><div><div class="row sp"><b>🛠 Разработка игры</b><b id="devPct" class="pct"></b></div><div class="rbar"><i id="devBar"></i></div><div id="devList" class="dlist"></div></div>
- <div><div class="row sp"><b>🎮 Твоё прохождение</b><b id="plPct" class="pct"></b></div><div class="rbar"><i id="plBar"></i></div><div id="plList" class="dlist"></div></div></div></div>
+ <div class="panel evbox" id="evBox"></div>
  <div class="panel"><h3>Статистика</h3><div id="stats" class="mu"></div></div>
 </section>
 <section id="s-gacha">
- <div class="panel"><div class="big">Баннер: <span style="color:var(--red)">Легенды круга</span></div><p class="mu">Шансы: EX 0.6% · SS 1.6% · S 4% · A 10% · B 16% · C 20% · D 17% · E 15% · F 15.8%. Гарант S+ на 70 крутке (<b id="pity"></b>/70). В x10 минимум один B+. Дубликаты дают ✦ эссенцию.</p>
- <div class="row"><button id="pull1">Крутка x1 — 💎100</button><button id="pull10" class="pink">Крутка x10 — 💎900</button><button id="pullG" class="sec">x1 за 🪙5000</button><label class="mu"><input type="checkbox" id="skipFx"> без анимации портала</label></div></div>
+ <div class="panel"><div class="bnTabs" id="bnTabs"></div><div class="big">Баннер: <span style="color:var(--red)" id="bnName">Легенды круга</span></div><p id="bnDesc" style="margin:4px 0"></p><div id="bnFeat"></div><p class="mu">Шансы: EX 0.6% · SS 1.6% · S 4% · A 10% · B 16% · C 20% · D 17% · E 15% · F 15.8%. Гарант S+ на 70 крутке (<b id="pity"></b>/70). В x10 минимум один B+. Дубликаты дают ✦ эссенцию.</p>
+ <div class="row"><button id="pull1">Крутка x1 — Ⓟ100</button><button id="pull10" class="pink">Крутка x10 — Ⓟ900</button><button id="pullG" class="sec">x1 за 🪙5000</button><label class="mu"><input type="checkbox" id="skipFx"> без анимации портала</label></div></div>
  <div class="panel"><h3>Последние открытия</h3><div class="grid" id="lastPulls"></div></div>
 </section>
 <section id="s-col">
@@ -154,9 +169,15 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
  <div class="panel"><div id="zoneBox"></div><div class="floors" id="floors"></div></div><div class="panel"><h3>Зоны башни</h3><div class="up" id="zoneList"></div></div>
 </section>
 <section id="s-up"><div class="panel"><h3>Академия — улучшения для всех</h3><div class="up" id="acad"></div></div>
- <div class="panel"><h3>Обмен</h3><div class="row"><button id="ex1" class="sec">🪙3000 → 📘1</button><button id="ex3" class="sec">💎50 → 🪙5000</button><button id="ex4" class="sec">💎100 → 🗝2</button><button id="ex5" class="sec">✦30 → 🎫1</button></div></div></section>
+ <div class="panel"><h3>Обмен</h3><div class="row"><button id="ex1" class="sec">🪙3000 → 📘1</button><button id="ex3" class="sec">Ⓟ50 → 🪙5000</button><button id="ex4" class="sec">Ⓟ100 → 🗝2</button><button id="ex5" class="sec">✦30 → 🎫1</button></div></div></section>
 <section id="s-quest"><div class="panel row sp"><div><b style="text-transform:uppercase">Доступно наград: <span id="qCount" style="color:var(--pink)">0</span></b></div><button id="claimAll">🎁 Забрать все</button></div><div class="panel"><h3>Награды за уровни аккаунта</h3><div class="lvr" id="lvr"></div></div><div class="panel"><h3>Ежедневные <span class="mu" id="qReset" style="font-size:11px;letter-spacing:0;text-transform:none"></span></h3><div id="dq"></div></div><div class="panel"><h3>Еженедельные</h3><div id="wq"></div></div><div class="panel"><h3>Достижения</h3><div id="aq"></div></div></section>
-<section id="s-set"><div class="panel"><h3>Сохранение</h3><p class="mu">Прогресс автоматически сохраняется в localStorage браузера.</p>
+<section id="s-arena"><div class="panel"><h3>Арена</h3><p class="mu">Бои против команд других игроков. 5 билетов в день.</p><div class="mats"><span>Рейтинг: <b id="arRating"></b></span><span>Билеты арены: <b id="arTix"></b></span><span>Побед: <b id="arW"></b></span></div>
+ <div class="row sp" style="margin:12px 0 6px"><h3 style="margin:0">Соперники</h3><button class="sm sec" id="arRef">🔄 Обновить</button></div><div class="lots" id="arOpp"></div></div></section>
+<section id="s-market"><div class="panel"><h3>Рынок игроков</h3><p class="mu" id="mktInfo"></p><div class="row"><button id="mktSellC">🃏 Продать карту</button><button id="mktSellI" class="pink">📦 Продать предмет</button><button id="mktRef" class="sec">🔄 Обновить</button></div>
+ <div class="tabs2" id="mktTabs"><button class="sm on" data-mf="all">Все</button><button class="sm" data-mf="card">Карта</button><button class="sm" data-mf="item">Предмет</button><button class="sm" data-mf="mine">Мои лоты</button></div><div class="lots" id="mktList"></div></div></section>
+<section id="s-top"><div class="panel"><div class="row sp"><h3 style="margin:0">Топ игроков по BP команды</h3><button class="sm sec" id="topRef">🔄 Обновить</button></div><p class="mu" id="topMe"></p>
+ <div style="overflow:auto"><table><thead><tr><th>Место</th><th>Игрок</th><th>BP команды</th><th class="hide-m">Сила</th><th class="hide-m">Рейтинг</th><th>Команда</th></tr></thead><tbody id="topBody"></tbody></table></div></div></section>
+<section id="s-set"><div class="panel"><h3>Настройки</h3><div class="row"><button id="openAcct">👤 Аккаунт и настройки</button></div></div><div class="panel"><h3>Сохранение</h3><p class="mu">Прогресс автоматически сохраняется в localStorage браузера.</p>
  <div class="row"><button id="exp" class="sec">📤 Экспорт</button><button id="imp" class="sec">📥 Импорт</button><button id="reset">🗑 Сбросить прогресс</button></div>
  <textarea id="saveTxt" style="width:100%;height:90px;margin-top:10px;background:#000;color:var(--tx);border:1px solid var(--ln);padding:8px" placeholder="Строка сохранения"></textarea>
  <p class="mu" style="font-size:12px">Данные игроков и аватары — с osu.ppy.sh (a.ppy.sh), собраны на момент создания игры. Фан-проект, не связан с ppy Pty Ltd.</p></div></section>
@@ -208,6 +229,11 @@ function tierOf(mode,pp){const t=TH[mode];for(let i=0;i<t.length;i++)if(pp>=t[i]
 FAM.split("\n").forEach(l=>{const a=l.split("\t");if(a.length>=7)addCh(a[0],+a[1],a[2],a[3],a[4],+a[5],+a[6])});
 {let cc="??",md="o";const L=RAWD.split("\n");for(let i=0;i<L.length;i++){const l=L[i];if(!l)continue;if(l.charCodeAt(0)===1){cc=l.slice(1,3);md=l[3];continue}const t=l.lastIndexOf("\t"),t2=l.lastIndexOf("\t",t-1);const pp=parseInt(l.slice(t+1),36);addCh(l.slice(0,t2),parseInt(l.slice(t2+1,t),36),cc,tierOf(md,pp),md,pp,0)}}
 const C=u=>CM.get(+u);
+const COVR=`/*COV*/`;const COV=new Map();COVR.split("\n").forEach(l=>{const t=l.indexOf("\t");if(t>0)COV.set(parseInt(l.slice(0,t),36),l.slice(t+1))});
+function coverOf(c){const v=COV.get(c.uid);if(!v)return null;return v[0]==="p"?`https://assets.ppy.sh/user-cover-presets/${v.slice(1)}`:`https://assets.ppy.sh/user-profile-covers/${c.uid}/${v}`}
+const GENBG=["#ff1f3d","#ff5fa2","#ffffff","#ffb3d1","#7a0f20"];
+function genBg(c){const h=hsh(c.name+"bg"),a=GENBG[h%5],b=GENBG[(h>>>3)%5],ang=(h>>>6)%180;return`repeating-linear-gradient(${ang}deg,${a}33 0 6px,transparent 6px 18px),linear-gradient(${ang+45}deg,${b}55,#000 70%)`}
+function cvStyle(c,dim){const u=coverOf(c);return u?`background-image:${dim?"linear-gradient(#000b,#000e),":""}url('${u}')`:`background-image:${dim?"linear-gradient(#000b,#000d),":""}${genBg(c)}`}
 const DUNG=[
  {k:"aim",n:"Кристальная шахта аима",ic:"🔴",m:"Кристаллы аима",c:"#ff1f3d",d:"для тренировки АТК"},
  {k:"hp",n:"Сердце марафона",ic:"🤍",m:"Сердца выносливости",c:"#ffffff",d:"для тренировки HP"},
@@ -223,11 +249,12 @@ const LOCS=[
  {n:"Стрим-лес",lv:3,cost:6,c:"#d4d4d4",drop:{gold:300,books:.5,xp:40},d:"🪙 + 📘"},
  {n:"Джамп-горы",lv:6,cost:8,c:"#ffb3d1",drop:{gold:200,books:1,xp:55},d:"Книги навыков 📘"},
  {n:"Слайдер-пещеры",lv:10,cost:9,c:"#ff5fa2",drop:{gold:900,xp:70},d:"Много 🪙"},
- {n:"Спиннер-храм",lv:15,cost:10,c:"#ff5fa2",drop:{gems:25,books:1,xp:85},d:"💎 + 📘"},
+ {n:"Спиннер-храм",lv:15,cost:10,c:"#ff5fa2",drop:{gems:25,books:1,xp:85},d:"Ⓟ + 📘"},
  {n:"Хардрок-цитадель",lv:22,cost:12,c:"#ff1f3d",drop:{gold:1500,books:2,gems:15,xp:110},d:"Всё и много"},
- {n:"Флешлайт-бездна",lv:30,cost:15,c:"#ff1f3d",drop:{gold:3000,books:3,gems:40,xp:160},d:"Эндгейм"}];
+ {n:"Флешлайт-бездна",lv:30,cost:15,c:"#ff1f3d",drop:{gold:3000,books:3,gems:40,xp:160},d:"Эндгейм"},
+ {n:"PP-фарм карты",lv:2,cost:7,c:"#ff5fa2",drop:{gems:30,gold:120,xp:35},d:"Основной источник Ⓟ PP",pp:1}];
 const ACAD=[["atk","Мастерство аима","+4% АТК всем",25,5],["hp","Выносливость","+4% HP всем",25,5],["def","Стабильность","+5% защиты всем",25,5],["gold","Спонсоры","+6% 🪙 с боёв",15,4],["xp","Опыт турниров","+6% опыта",15,4],["sta","Энерго-напиток","+5 макс. энергии",10,3],["key","Связка ключей","+1 ключ в день",5,6],["loot","Удачливый лут","+5% добычи в данжах",15,5]];
-const DQ=[["login","Зайти в игру",1,30],["pull","Сделать 10 круток",10,150],["fight","Провести 8 боёв",8,120],["dung","Пройти 4 данжа",4,150],["farm","Пройти 5 локаций",5,120],["win","Победить на 2 этажах башни",2,100],["lvl","Повысить уровень 5 раз",5,100],["skill","Улучшить навык",1,80],["train","Тренировка 3 раза",3,80],["mod","Улучшить мод 2 раза",2,80],["spend","Потратить 40 ⚡",40,100]];
+const DQ=[["login","Зайти в игру",1,30],["pull","Сделать 10 круток",10,150],["fight","Провести 8 боёв",8,120],["dung","Пройти 4 данжа",4,150],["farm","Пройти 5 локаций",5,120],["win","Победить на 2 этажах башни",2,100],["lvl","Повысить уровень 5 раз",5,100],["skill","Улучшить навык",1,80],["train","Тренировка 3 раза",3,80],["mod","Улучшить мод 2 раза",2,80],["spend","Потратить 40 ⚡",40,100],["arena","Провести 3 боя на Арене",3,120]];
 const WQ=[["pull","Сделать 60 круток",60,800],["fight","Провести 50 боёв",50,600],["dung","Пройти 25 данжей",25,800],["win","Пройти 10 этажей башни",10,600],["farm","Пройти 30 локаций",30,600],["lvl","Повысить уровень 30 раз",30,500],["promo","Повысить ранг игрока",1,700]];
 const MAXF=150;const ACH=[];
 [10,25,50,75,100,125,150].forEach(n=>ACH.push(["floor",n,`Пройти ${n} этаж башни`,n*60]));[10,50,100,250,500,1000].forEach(n=>ACH.push(["owned",n,`Собрать ${n} игроков`,n*12+100]));
@@ -235,25 +262,25 @@ const MAXF=150;const ACH=[];
 ACH.push(["ex",1,"Получить EX ранг",1000],["ex",6,"Все EX игроки",5000],["maxsk",1,"Навык до 10 уровня",600],["star5",1,"Пробудить до 5★",1500],["promo",1,"Первое повышение ранга",500],["promo",10,"10 повышений ранга",2000],["modmax",1,"Мод до 10 уровня",800],["dclear",DUNG.length,"Все данжи на 15 уровне",5000],["clearloc",LOCS.length,"Все локации на 10 сложности",4000]);
 let S;
 const newO=()=>({lvl:1,stars:0,dup:0,sk:1,tr:{atk:0,hp:0,def:0,spd:0},md:{},rk:""});
-function fresh(){return{v:3,gems:2000,gold:6000,books:3,sta:60,staT:Date.now(),keys:12,keyDay:"",mat:{aim:10,hp:10,acc:10,spd:10,chip:10,ess:10,tik:0},alv:1,axp:0,col:{},team:[],floor:1,pity:0,pulls:0,wins:0,fights:0,promos:0,daily:"",dq:{},dqC:{},dqDay:"",wq:{},wqC:{},wk:"",ach:{},lvC:{},acad:{},loc:{},dg:{},last:[]}}
+function fresh(){return{v:3,gems:2000,gold:6000,books:3,sta:60,staT:Date.now(),keys:12,keyDay:"",mat:{aim:10,hp:10,acc:10,spd:10,chip:10,ess:10,tik:0},alv:1,axp:0,col:{},team:[],floor:1,pity:0,pulls:0,wins:0,fights:0,promos:0,daily:"",dq:{},dqC:{},dqDay:"",wq:{},wqC:{},wk:"",ach:{},lvC:{},arena:{rating:1000,tix:5,day:"",wins:0},banner:"std",acad:{},loc:{},dg:{},last:[]}}
 function load(){let r=null,old=null;try{r=localStorage.getItem("osuGachaSave3");if(!r)old=localStorage.getItem("osuGachaSave2")}catch(e){}
  try{S=r?Object.assign(fresh(),JSON.parse(r)):fresh()}catch(e){S=fresh()}
  if(!r&&old){try{const o=JSON.parse(old);for(const k in o.col||{}){const u=OLD_UIDS[k];if(u&&C(u))S.col[u]=Object.assign(newO(),{lvl:o.col[k].lvl||1,stars:o.col[k].stars||0,sk:o.col[k].sk||1})}S.team=(o.team||[]).map(k=>OLD_UIDS[k]).filter(Boolean);S.gems+=Math.min(5000,o.gems||0);S.gold+=o.gold||0;S.floor=o.floor||1;S.alv=o.alv||1;setTimeout(()=>toast("Прогресс из прошлой версии перенесён!"),500)}catch(e){}}
  sanitize()}
-function sanitize(){const f=fresh();for(const k in f)if(S[k]===undefined)S[k]=f[k];S.mat=Object.assign(f.mat,S.mat||{});
+function sanitize(){const f=fresh();for(const k in f)if(S[k]===undefined)S[k]=f[k];S.mat=Object.assign(f.mat,S.mat||{});S.arena=Object.assign(f.arena,S.arena||{});if(!BANNERS.find(b=>b.id===S.banner))S.banner="std";
  for(const k in S.col){if(!C(k)){delete S.col[k];continue}const o=Object.assign(newO(),S.col[k]);o.tr=Object.assign(newO().tr,o.tr);o.md=o.md||{};S.col[k]=o}
  S.team=(Array.isArray(S.team)?S.team:[]).map(Number).filter((u,i,a)=>S.col[u]&&a.indexOf(u)===i).slice(0,5);S.floor=Math.min(Math.max(1,S.floor|0),MAXF+1);S.last=(Array.isArray(S.last)?S.last:[]).filter(u=>C(u))}
-let saveT=0;function save(){try{localStorage.setItem("osuGachaSave3",JSON.stringify(S))}catch(e){if(Date.now()-saveT>10000){saveT=Date.now();toast("Не удалось сохранить прогресс")}}}
+let saveT=0;function save(){try{localStorage.setItem("osuGachaSave3",JSON.stringify(S));if(typeof me==="function"&&me())pushProfile()}catch(e){if(Date.now()-saveT>10000){saveT=Date.now();toast("Не удалось сохранить прогресс")}}}
 const today=()=>new Date().toISOString().slice(0,10);
 function week(){const d=new Date();d.setUTCHours(0,0,0,0);d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));return d.toISOString().slice(0,10)}
 const acad=k=>S.acad[k]||0;const maxKeys=()=>12+acad("key");
-function checkDay(){if(S.dqDay!==today()){S.dqDay=today();S.dq={};S.dqC={}}if(S.wk!==week()){S.wk=week();S.wq={};S.wqC={}}if(!S.dq.login)S.dq.login=1;if(S.keyDay!==today()){S.keyDay=today();S.keys=Math.max(S.keys,maxKeys())}}
+function checkDay(){if(S.dqDay!==today()){S.dqDay=today();S.dq={};S.dqC={}}if(S.wk!==week()){S.wk=week();S.wq={};S.wqC={}}if(!S.dq.login)S.dq.login=1;if(S.arena&&S.arena.day!==today()){S.arena.day=today();S.arena.tix=5}if(S.keyDay!==today()){S.keyDay=today();S.keys=Math.max(S.keys,maxKeys())}}
 function prog(k,n=1){checkDay();S.dq[k]=(S.dq[k]||0)+n;S.wq[k]=(S.wq[k]||0)+n}
 const maxSta=()=>60+S.alv*2+acad("sta")*5;
 function tickSta(){const now=Date.now(),per=180000;if(S.sta>=maxSta()){S.staT=now;return}const g=Math.floor((now-S.staT)/per);if(g>0){S.sta=Math.min(maxSta(),S.sta+g);S.staT+=g*per}}
 const xpNeed=l=>Math.round(80*Math.pow(l,1.45));
-function addXp(x){S.axp+=Math.round(x*(1+acad("xp")*.06));let up=0;while(S.axp>=xpNeed(S.alv)){S.axp-=xpNeed(S.alv);S.alv++;up++;S.sta=Math.max(S.sta,maxSta())}if(up)toast(`Уровень аккаунта ${S.alv}! Награда ждёт во вкладке «Задания»`)}
-function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2600)}
+function addXp(x){S.axp+=Math.round(x*(1+acad("xp")*.06)*evm("xp"));let up=0;while(S.axp>=xpNeed(S.alv)){S.axp-=xpNeed(S.alv);S.alv++;up++;S.sta=Math.max(S.sta,maxSta())}if(up){sfx("lvl");pushProfile(true)}if(up)toast(`Уровень аккаунта ${S.alv}! Награда ждёт во вкладке «Задания»`)}
+function toast(m){const t=$("toast");t.textContent=tr(String(m));t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2600)}
 const fmt=n=>n>=1e9?(n/1e9).toFixed(2)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e4?(n/1e3).toFixed(1)+"k":String(Math.round(n));
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 function fallback(c){const h=hsh(c.name)%3;const bg=["#111","#2a0710","#1a1a1a"][h];return"data:image/svg+xml,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='${bg}'/><circle cx='50' cy='50' r='34' fill='none' stroke='#ff5fa2' stroke-width='5'/><text x='50' y='61' font-size='28' text-anchor='middle' fill='#fff' font-family='sans-serif' font-weight='bold'>${esc(c.name.replace(/[^\w]/g,"").slice(0,2).toUpperCase()||"?")}</text></svg>`)}
@@ -262,12 +289,12 @@ const img=c=>`<img loading="lazy" alt="" src="https://a.ppy.sh/${c.uid}" onerror
 const curRank=u=>(S.col[u]&&S.col[u].rk)||C(u).rank;
 const curBP=u=>{const c=C(u);return Math.round(c.bp*BASE[curRank(u)]/BASE[c.rank])};
 function modSum(o,key){let s=0;for(const m of MODS)if(m[3]===key)s+=(o.md[m[0]]||0)*m[4];return s}
-function stats(u){const c=C(u),o=S.col[u]||newO(),p=PAS[c.pas];const pv=k=>p[2]===k?p[3]:(p[2]==="hpdef"&&(k==="hp"||k==="def")?p[3]:0);
- const m=curBP(u)/100*(1+(o.lvl-1)*.07)*(1+o.stars*.15);
+function stats(u,oo){const c=C(u),o=oo||S.col[u]||newO(),p=PAS[c.pas],rk0=o.rk||c.rank,bp0=Math.round(c.bp*BASE[rk0]/BASE[c.rank]);const pv=k=>p[2]===k?p[3]:(p[2]==="hpdef"&&(k==="hp"||k==="def")?p[3]:0);
+ const m=bp0/100*(1+(o.lvl-1)*.07)*(1+o.stars*.15);
  const atk=Math.round(20*m*(1+o.tr.atk*.04)*(1+acad("atk")*.04)*(1+modSum(o,"atk")+pv("atk")));
  const hp=Math.round(130*m*(1+o.tr.hp*.04)*(1+acad("hp")*.04)*(1+modSum(o,"hp")+pv("hp")));
  const def=Math.round(8*Math.pow(m,.75)*(1+o.tr.def*.05)*(1+acad("def")*.05)*(1+modSum(o,"def")+pv("def")));
- const spd=Math.round(95+SK[c.sk].spd+o.tr.spd*2+RI(curRank(u))+modSum(o,"spd")+pv("spd"));
+ const spd=Math.round(95+SK[c.sk].spd+o.tr.spd*2+RI(rk0)+modSum(o,"spd")+pv("spd"));
  const crit=.1+modSum(o,"crit")+pv("crit"),cdm=1.8+modSum(o,"cdm")+pv("cdm"),skd=1+modSum(o,"skd")+pv("skd"),eng=1+modSum(o,"eng")+pv("eng"),regen=pv("regen");
  return{atk,hp,def,spd,crit,cdm,skd,eng,regen,power:Math.round(atk*3+hp/2+def*3+spd*2+(o.sk-1)*atk*.2)}}
 const lvlCost=u=>Math.round(80*Math.pow(1.13,S.col[u].lvl)*(RI(curRank(u))+2)/3);
@@ -284,32 +311,32 @@ const skName=c=>SK[c.sk].n[c.skn]+SUF[c.suf]+(c.rank==="EX"?" ✦EX":"");
 const skMul=(c,lv,rk)=>SK[c.sk].m*c.skv*(1+(lv-1)*.1)*(rk==="EX"?1.3:RI(rk)>=6?1.15:1);
 function skillText(c,lv,rk){return`${skName(c)} (ур.${lv}) — ${SK[c.sk].d.replace("{m}",skMul(c,lv,rk||c.rank).toFixed(2))}`}
 function card(u,extra=""){const c=C(u),o=S.col[u],rk=o?curRank(u):c.rank,st=o?stats(u):null;
- return`<div class="card r-${rk} ${o?"":"locked"} ${S.team.includes(+u)?"inteam":""} ${extra}" data-u="${c.uid}"><span class="rk">${rk}</span>${o?`<span class="lv">Ур.${o.lvl}${o.stars?" · "+o.stars+"★":""}</span>`:""}${img(c)}<div class="nm">${esc(c.name)}</div><div class="st">BP ${o?curBP(u):c.bp}${o?` · ⚔${fmt(st.power)}`:""}</div></div>`}
+ return`<div class="card r-${rk} ${o?"":"locked"} ${S.team.includes(+u)?"inteam":""} ${extra}" data-u="${c.uid}"><span class="rk">${rk}</span><div class="cv" style="${cvStyle(c)}"></div>${o?`<span class="lv">Ур.${o.lvl}${o.stars?" · "+o.stars+"★":""}</span>`:""}${img(c)}<div class="nm">${esc(c.name)}</div><div class="st">BP ${o?curBP(u):c.bp}${o?` · ⚔${fmt(st.power)}`:""}</div><div class="sk2" title="${esc(SK[c.sk].d.replace("{m}",skMul(c,o?o.sk:1,rk).toFixed(2)))}">✨ ${esc(skName(c))}</div><div class="ps2" title="${PAS[c.pas][1]}">🧬 ${PAS[c.pas][0]} · ${PAS[c.pas][1]}</div></div>`}
 // ---------- ГАЧА ----------
 function roll(minB){let r=Math.random()*100,rank="F";for(const[k,p]of RATES){if(r<p){rank=k;break}r-=p}
  S.pity++;if(S.pity>=70&&RI(rank)<6){const x=Math.random();rank=x<.12?"EX":x<.35?"SS":"S"}if(minB&&RI(rank)<4)rank="B";if(RI(rank)>=6)S.pity=0;
- const pool=POOL[rank].length?POOL[rank]:POOL.F;return pool[Math.floor(Math.random()*pool.length)]}
-function gacha(n,cur){const cost=cur==="gold"?5000:n===10?900:100;if(S[cur]<cost)return toast(cur==="gold"?"Недостаточно золота":"Недостаточно гемов");
+ const pool=bannerPool(rank);return pool[Math.floor(Math.random()*pool.length)]}
+function gacha(n,cur){const cost=cur==="gold"?5000:n===10?900:100;if(S[cur]<cost)return toast(cur==="gold"?"Недостаточно золота":"Недостаточно PP");
  S[cur]-=cost;const res=[];for(let i=0;i<n;i++)res.push(roll(n===10&&i===9&&!res.some(x=>RI(C(x).rank)>=4)));
  const out=res.map(u=>{const isNew=!S.col[u];if(isNew)S.col[u]=newO();else{S.col[u].dup++;S.mat.ess+=3+RI(C(u).rank)*2}return{u,isNew}});
  S.pulls+=n;prog("pull",n);addXp(n*5);S.last=res.concat(S.last).slice(0,20);save();render();
  const best=Math.max(...out.map(o=>RI(C(o.u).rank)));if($("skipFx").checked)showPull(out);else portal(RANKS[best],()=>showPull(out))}
 function portal(r,cb){const fx=$("fx"),ri=RI(r),col=ri>=5?RCOL[r]:"#ffffff";fx.className="on"+(ri>=5?" fx-"+r:"");fx.style.setProperty("--oc",col);
  const o=$("orb");o.style.animation="none";void o.offsetWidth;o.style.animation="";$("fxTxt").textContent=ri>=8?"✦ EX ✦":ri>=7?"SS!!":ri>=6?"S RANK":ri>=5?"A RANK":"PULL";let done=false;
- const fin=()=>{if(done)return;done=true;clearTimeout(t);fx.className="";if(ri>=6){const f=$("flash");f.classList.remove("on");void f.offsetWidth;f.classList.add("on")}cb()};const t=setTimeout(fin,ri>=8?2600:2200);fx.onclick=fin}
+ sfx("pull");const fin=()=>{if(done)return;done=true;clearTimeout(t);fx.className="";if(ri>=6){const f=$("flash");f.classList.remove("on");void f.offsetWidth;f.classList.add("on")}cb()};const t=setTimeout(fin,ri>=8?2600:2200);fx.onclick=fin}
 function burst(el,cols,n){const r=el.getBoundingClientRect();for(let i=0;i<n;i++){const p=document.createElement("div");p.className="ptc";const a=Math.random()*Math.PI*2,d=60+Math.random()*130;
  p.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;background:${cols[i%cols.length]};--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px`;document.body.appendChild(p);setTimeout(()=>p.remove(),1100)}}
 const BURST={A:[["#ffb3d1"],8],S:[["#ff5fa2","#fff"],18],SS:[["#ff1f3d","#fff"],28],EX:[["#ff1f3d","#ff5fa2","#fff","#000"],44]};
 function showPull(out){$("mbox").innerHTML=`<h3>Результат</h3><p class="mu">Нажимайте на карточки, чтобы открыть</p><div class="pull">${out.map((o,i)=>{const r=C(o.u).rank;return`<div class="flip" style="animation-delay:${i*70}ms"><div class="in"><div class="back ${RI(r)>=5?"h"+r:""}">?</div><div class="front rv-${r}">${card(o.u)}<div style="font-size:11px;margin-top:4px;font-weight:800;color:${o.isNew?"var(--pink)":"var(--mu)"}">${o.isNew?"NEW!":"Дубликат +✦"}</div></div></div></div>`}).join("")}</div><div class="row" style="justify-content:center"><button id="openAll">Открыть все</button><button class="sec" id="closeM">Закрыть</button></div>`;
  openModal();const fl=[...document.querySelectorAll("#mbox .flip")];
- const open=(f,i)=>{if(f.classList.contains("open"))return;f.classList.add("open");const b=BURST[C(out[i].u).rank];if(b)setTimeout(()=>burst(f,b[0],b[1]),250)};
+ const open=(f,i)=>{if(f.classList.contains("open"))return;f.classList.add("open");const rr=C(out[i].u).rank;sfx(RI(rr)>=5?rr:"click");const b=BURST[rr];if(b)setTimeout(()=>burst(f,b[0],b[1]),250)};
  fl.forEach((f,i)=>f.onclick=()=>open(f,i));$("openAll").onclick=()=>fl.forEach((f,i)=>setTimeout(()=>open(f,i),i*150));$("closeM").onclick=closeModal}
 function openModal(){$("modal").classList.add("on")}function closeModal(){$("modal").classList.remove("on");render()}
 $("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
 // ---------- ПЕРСОНАЖ ----------
 let charTab="main";
 function showChar(u){u=+u;const c=C(u),o=S.col[u];if(!c)return;const p=PAS[c.pas];
- const head=`<div style="max-width:180px;margin:auto">${card(u)}</div><h3 style="border:0;font-size:20px;margin-top:10px">${esc(c.name)} <span style="color:${RCOL[o?curRank(u):c.rank]}">[${o?curRank(u):c.rank}]</span></h3>
+ const head=`<div class="cban" style="${cvStyle(c)}"></div><div style="max-width:180px;margin:-70px auto 0;position:relative">${card(u)}</div><h3 style="border:0;font-size:20px;margin-top:10px">${esc(c.name)} <span style="color:${RCOL[o?curRank(u):c.rank]}">[${o?curRank(u):c.rank}]</span></h3>
  <p class="mu">BP ${o?curBP(u):c.bp} · ${MODE[c.mode]}${c.pp?" · "+fmt(c.pp)+"pp":""} · ${c.cc}${c.fol?" · "+fmt(c.fol)+" подписчиков":""} · <a style="color:var(--pink)" href="https://osu.ppy.sh/users/${c.uid}" target="_blank" rel="noopener">профиль osu!</a></p>`;
  if(!o){$("mbox").innerHTML=head+`<p>✨ ${skillText(c,1)}</p><p>🧬 Пассивка: <b>${p[0]}</b> — ${p[1]}</p><p class="mu">Ещё не открыт — выбейте в гаче.</p><button class="sec" id="closeM">Закрыть</button>`;openModal();$("closeM").onclick=closeModal;return}
  const st=stats(u),cost=lvlCost(u),ml=maxLvl(u),need=o.stars+1,sc=skCost(u),ae=awEss(u),pc=promoCost(u),rk=curRank(u);
@@ -414,9 +441,9 @@ const FX={
  async storm(t){if(skip)return;const b=ctr(t.el);const l=fxDiv(`width:6px;height:${b.y}px;background:linear-gradient(#fff0,#fff,#60a5fa);box-shadow:0 0 20px #60a5fa;transform-origin:50% 0`);await anim(l,[{transform:`translate(${b.x}px,0) scaleY(0)`,opacity:1},{transform:`translate(${b.x}px,0) scaleY(1)`,opacity:1,offset:.4},{transform:`translate(${b.x}px,0) scaleY(1)`,opacity:0}],400);impact(t,"#60a5fa",true)}};
 function mkFoes(scale,count,boss,seed){const ri=Math.min(7,Math.max(0,Math.floor(Math.log(scale)/Math.log(1.7))));const pool=POOL[RANKS[ri]].length?POOL[RANKS[ri]]:POOL.F;const out=[];
  for(let i=0;i<count;i++){const c=C(pool[(seed*7919+i*104729)%pool.length]),b=boss?3.2/count:1;out.push({name:(boss&&i===0?"👑 ":"Тень ")+c.name,c,maxHp:Math.round(240*scale*b),atk:Math.round(19*scale*(boss?1.5:1)),def:Math.round(7*Math.pow(scale,.75)),spd:90+(seed+i)%15,sk:c.sk,skl:1+Math.min(9,Math.floor(scale/30)),rank:c.rank,lvl:Math.max(1,Math.round(Math.log(scale)*8)),crit:.1,cdm:1.8,skd:1,eng:1,regen:0})}return out}
-const towerScale=f=>Math.pow(1.078,f)*(f%10===0?1.15:1);
+const towerScale=f=>2.2*Math.pow(1.07,f)*(f%10===0?1.2:1);
 function mkUnit(o,side){return Object.assign({hp:o.maxHp,en:Math.random()*30,side,buf:{},dealt:0},o)}
-function unitEl(u,i){return`<div class="unit ${u.side} r-${u.rank}" id="u-${u.side}-${i}"><span class="urk">${u.rank}</span><span class="ulv">Ур.${u.lvl||1}</span>${img(u.c)}<div class="un">${esc(u.name)}</div><div class="usk">${MODE[u.c.mode]} · ${esc(skName(u.c))}</div><div class="hb"><i style="width:100%"></i></div><div class="hpt"></div><div class="eb"><i style="width:${u.en}%"></i></div><div class="bf"></div></div>`}
+function unitEl(u,i){return`<div class="unit ${u.side} r-${u.rank}" id="u-${u.side}-${i}" style="${cvStyle(u.c,1)}"><span class="urk">${u.rank}</span><span class="ulv">Ур.${u.lvl||1}</span>${img(u.c)}<div class="un">${esc(u.name)}</div><div class="usk">${MODE[u.c.mode]} · ${esc(skName(u.c))}</div><div class="hb"><i style="width:100%"></i></div><div class="hpt"></div><div class="eb"><i style="width:${u.en}%"></i></div><div class="bf"></div></div>`}
 function applyZone(z,A,E){const m=z.mod;E.forEach(u=>{if(m==="atk")u.atk*=1.15;if(m==="hp"){u.maxHp*=1.25}if(m==="atkhp"){u.atk*=1.2;u.maxHp*=1.1}if(m==="crit")u.crit+=.12;if(m==="eng")u.eng=1.5;if(m==="regen")u.regen=.03;if(m==="vamp")u.vamp=.2;if(m==="reflect")u.refl=.12;if(m==="chaos")u.en=100;if(m==="peak"){u.atk*=1.15;u.maxHp*=1.15;u.def*=1.15;u.crit+=.08}u.maxHp=Math.round(u.maxHp);u.hp=u.maxHp;u.atk=Math.round(u.atk)});
  A.forEach(u=>{if(m==="slow")u.spd-=8;if(m==="armor")u.def=Math.round(u.def*.7);if(m==="poison")u.regen-=.03})}
 function setBg(z){const bg=$("arBg");bg.style.setProperty("--zc",z.c);let h="";for(let i=0;i<26;i++){const s=10+Math.random()*22;h+=`<span style="left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${s}px;animation-duration:${6+Math.random()*10}s;animation-delay:-${Math.random()*10}s;opacity:${.15+Math.random()*.35}">${z.g}</span>`}bg.innerHTML=h;$("arena").style.setProperty("--zc",z.c)}
@@ -426,7 +453,7 @@ function startBattle(title,foes,onEnd,zone){if(inBattle)return false;if(!S.team.
  $("arTitle").textContent=title;$("arZone").innerHTML=`<span style="color:${zone.c}">${zone.g} ${esc(zone.n)}</span>${zone.mod?` · ${zone.d}`:""}`;setBg(zone);$("wm").textContent=zone.n;
  $("allySide").innerHTML=allies.map(unitEl).join("");$("foeSide").innerHTML=enemies.map(unitEl).join("");allies.forEach((u,i)=>{u.el=$("u-ally-"+i);upd(u)});enemies.forEach((u,i)=>{u.el=$("u-foe-"+i);upd(u)});
  $("blog").innerHTML="";$("arEnd").innerHTML="";$("arEnd").classList.remove("on");$("combo").textContent="";$("arSkip").disabled=false;$("arena").classList.add("on");$("arena").scrollTop=0;side();
- battleLoop(allies,enemies).then(win=>{inBattle=false;$("arSkip").disabled=true;$("fxl").innerHTML="";let r="";try{r=onEnd(win)||""}catch(e){console.error(e)}side();
+ battleLoop(allies,enemies).then(win=>{inBattle=false;sfx(win?"win":"lose");$("arSkip").disabled=true;$("fxl").innerHTML="";let r="";try{r=onEnd(win)||""}catch(e){console.error(e)}side();
   const mvp=allies.slice().sort((a,b)=>b.dealt-a.dealt)[0];
   $("arEnd").innerHTML=`<div class="big" style="color:${win?"#fff":"var(--red)"}">${win?"Победа!":"Поражение"}</div><p>${r}</p><p class="mu">MVP: <b style="color:var(--pink)">${esc(mvp.name)}</b> — ${fmt(mvp.dealt)} урона · Макс. комбо ${BT.maxCombo}x · Раундов ${$("arRound").textContent}</p><button id="arClose">Продолжить</button>`;$("arEnd").classList.add("on");
   $("arClose").onclick=()=>{$("arena").classList.remove("on");render()};save();hdr()})
@@ -443,12 +470,12 @@ function upd(u){u.el.querySelector(".hb i").style.width=Math.max(0,u.hp/u.maxHp*
 function pop(u,txt,cls){if(skip)return;const d=document.createElement("div");d.className="dmg "+(cls||"");d.textContent=txt;d.style.marginLeft=(Math.random()*40-20)+"px";u.el.appendChild(d);setTimeout(()=>d.remove(),1000);if(cls!=="hl"){u.el.classList.remove("hit");void u.el.offsetWidth;u.el.classList.add("hit")}}
 function combo(n){BT.combo=n;BT.maxCombo=Math.max(BT.maxCombo,n);const c=$("combo");if(n<2){c.textContent=n===0&&BT.maxCombo>4?"":"";return}c.textContent=n+"x";if(!skip){c.classList.remove("pulse");void c.offsetWidth;c.classList.add("pulse")}}
 function hit(a,t,mul,isSk){if(!t||t.hp<=0)return 0;const atk=a.atk*(a.buf.atk?1.35:1)*(a.buf.weak?.65:1)*(isSk?a.skd:1);const crit=Math.random()<a.crit;let d=atk*mul*(.9+Math.random()*.2)*(crit?a.cdm:1)*100/(100+t.def);
- if(t.buf.sh)d*=.55;d=Math.max(1,Math.round(d));t.hp=Math.max(0,t.hp-d);t.en+=8*t.eng;a.dealt+=d;pop(t,(crit?"КРИТ ":"")+fmt(d),crit?"cr":"");
+ if(t.buf.sh)d*=.55;d=Math.max(1,Math.round(d));t.hp=Math.max(0,t.hp-d);t.en+=8*t.eng;a.dealt+=d;sfx(crit?"crit":"hit");pop(t,(crit?"КРИТ ":"")+fmt(d),crit?"cr":"");
  if(a.side==="ally"){BT.st.dA+=d;BT.st.max=Math.max(BT.st.max,d);if(crit)BT.st.crit++;combo(BT.combo+1)}else{BT.st.dE+=d;if(crit||t.hp<=0)combo(0)}
  if(a.vamp)heal(a,d*a.vamp);if(t.refl&&a.hp>0){a.hp=Math.max(1,a.hp-Math.round(d*t.refl));upd(a)}
  if(t.hp<=0)blog(`<span style="color:var(--red)">✖ ${esc(t.name)} выбывает</span>`);upd(t);return d}
 function heal(x,h){if(x.hp<=0)return;h=Math.round(h);x.hp=Math.min(x.maxHp,x.hp+h);if(x.side==="ally")BT.st.heal+=h;pop(x,"+"+fmt(h),"hl");upd(x)}
-function banner(t){if(skip)return;const b=$("banner");b.textContent=t;b.classList.remove("on");void b.offsetWidth;b.classList.add("on")}
+function banner(t){if(skip)return;sfx("skill");const b=$("banner");b.textContent=t;b.classList.remove("on");void b.offsetWidth;b.classList.add("on")}
 async function act(u,mine,their){const alive=()=>their.filter(x=>x.hp>0);if(!alive().length)return;const tg=()=>{const a=alive();return a[Math.floor(Math.random()*a.length)]};
  if(!skip)u.el.classList.add("act-"+u.side);await sleep(140);
  if(u.en>=100){u.en=0;if(u.side==="ally")BT.st.sk++;const m=skMul(u.c,u.skl,u.rank);if(!skip)u.el.classList.add("skill");banner(`${u.name}: ${skName(u.c)}`);upd(u);await sleep(250);
@@ -472,26 +499,238 @@ async function battleLoop(A,E){for(let r=1;r<=40;r++){$("arRound").textContent=r
   A.concat(E).forEach(u=>{if(u.hp>0&&u.regen>0)heal(u,u.maxHp*u.regen);if(u.hp>0&&u.regen<0){const d=Math.round(-u.maxHp*u.regen);u.hp=Math.max(1,u.hp-d);pop(u,"☠"+fmt(d),"");}for(const k in u.buf){if(--u.buf[k]<=0)delete u.buf[k]}if(u.hp>0)upd(u)});if(skip&&r%4===0)await new Promise(res=>setTimeout(res,0))}
  blog("Время вышло!");return false}
 $("arSpeed").onclick=()=>{speed=speed===1?2:speed===2?4:1;$("arSpeed").textContent="x"+speed};$("arSkip").onclick=()=>{skip=true;$("fxl").innerHTML=""};
-const ICO={gold:"🪙",gems:"💎",books:"📘",keys:"🗝"};
+const ICO={gold:"🪙",gems:"Ⓟ",books:"📘",keys:"🗝"};
 function giveR(k,v){if(MATIC[k]){S.mat[k]+=v;return`+${MATIC[k]}${fmt(v)}`}S[k]+=v;return`+${ICO[k]}${fmt(v)}`}
-function giveDrop(d,mul){const g=[];for(const k in d){if(k==="xp")continue;const v=Math.max(1,Math.round(d[k]*mul*(k==="gold"?1+acad("gold")*.06:1)));g.push(giveR(k,v))}
+function giveDrop(d,mul){const g=[];for(const k in d){if(k==="xp")continue;const v=Math.max(1,Math.round(d[k]*mul*(k==="gold"?(1+acad("gold")*.06)*evm("gold"):1)*(k==="books"?evm("books"):1)));g.push(giveR(k,v))}
  const x=Math.round((d.xp||0)*Math.sqrt(mul));addXp(x);return g.join(" ")+` +${x} XP`}
 function towerFight(f,repeat){if(f<1||f>MAXF)return;const boss=f%10===0;
- startBattle(`Башня — этаж ${f}${boss?" · БОСС":""}`,mkFoes(towerScale(f),boss?3:Math.min(4,1+Math.floor(f/8)%3+(f>30?1:0)),boss,f),win=>{
+ startBattle(`Башня — этаж ${f}${boss?" · БОСС":""}`,mkFoes(towerScale(f),boss?3:Math.min(4,2+Math.floor(f/8)%2+(f>30?1:0)),boss,f),win=>{
   const base={gold:Math.round(180*Math.pow(1.06,f)),gems:boss?150:20+Math.floor(f/5)*4,xp:20+f*2};if(f%25===0){base.books=3;base.tik=1}
   if(!win)return giveDrop({gold:base.gold},.15)+" — прокачайте команду!";S.wins++;prog("win");if(!repeat&&f===S.floor)S.floor++;return giveDrop(base,repeat?.4:1)},zoneOf(f))}
 function locFight(li,st){const L=LOCS[li];if(S.alv<L.lv)return toast(`Нужен уровень аккаунта ${L.lv}`);tickSta();if(S.sta<L.cost)return toast("Недостаточно энергии");
- const sc=Math.pow(1.078,L.lv*1.6+st*3);if(startBattle(`${L.n} — сложность ${st}`,mkFoes(sc,3,st===10,li*10+st),win=>{
-  if(!win){S.sta+=Math.floor(L.cost/2);return"Половина энергии возвращена."}prog("farm");S.loc["l"+li]=Math.max(S.loc["l"+li]||0,st);return giveDrop(L.drop,1+st*.35)},{n:L.n,c:L.c,g:"♪",mod:""})){S.sta-=L.cost;prog("spend",L.cost)}}
+ const sc=1.8*Math.pow(1.078,L.lv*1.6+st*3);if(startBattle(`${L.n} — сложность ${st}`,mkFoes(sc,3,st===10,li*10+st),win=>{
+  if(!win){S.sta+=Math.floor(L.cost/2);return"Половина энергии возвращена."}prog("farm");S.loc["l"+li]=Math.max(S.loc["l"+li]||0,st);return giveDrop(L.pp?Object.assign({},L.drop,{gems:L.drop.gems*evm("ppmap")}):L.drop,1+st*.35)},{n:L.n,c:L.c,g:"♪",mod:""})){S.sta-=L.cost;prog("spend",L.cost)}}
 function dungFight(di,lv){const D=DUNG[di];checkDay();if(S.keys<1)return toast("Нет ключей 🗝 — приходите завтра или купите в Академии");
- const sc=Math.pow(1.078,4+lv*5.5);if(startBattle(`${D.n} — уровень ${lv}`,mkFoes(sc,3,lv%5===0,di*100+lv),win=>{
-  if(!win){S.keys++;return"Ключ возвращён."}prog("dung");S.dg["d"+di]=Math.max(S.dg["d"+di]||0,lv);const drop={gold:150*lv,xp:30+lv*6};drop[D.k]=(4+lv*1.6)*(1+acad("loot")*.05);
+ const sc=1.6*Math.pow(1.078,4+lv*5.5);if(startBattle(`${D.n} — уровень ${lv}`,mkFoes(sc,3,lv%5===0,di*100+lv),win=>{
+  if(!win){S.keys++;return"Ключ возвращён."}prog("dung");S.dg["d"+di]=Math.max(S.dg["d"+di]||0,lv);const drop={gold:150*lv,xp:30+lv*6};drop[D.k]=(4+lv*1.6)*(1+acad("loot")*.05)*evm("dung");
   if(D.k==="ess"&&lv>=8&&Math.random()<.25+lv*.03)drop.tik=1;return giveDrop(drop,1)},{n:D.n,c:D.c,g:D.ic,mod:""}))S.keys--}
 // ---------- НАГРАДЫ ЗА УРОВНИ ----------
 const LVMAX=100;
 function lvReward(l){const r={gems:40+l*10,gold:800*l,ess:5+Math.floor(l/2)};if(l%3===0)r.books=1+Math.floor(l/15);if(l%5===0)r.keys=3;if(l%10===0){r.tik=1;r.gems+=500}if(l%25===0)r.gems+=1500;return r}
 const rwTxt=r=>Object.entries(r).map(([k,v])=>`${MATIC[k]||ICO[k]}${fmt(v)}`).join(" ");
 function claimLv(l){if(l>S.alv||S.lvC[l]||l<2||l>LVMAX)return"";S.lvC[l]=1;const r=lvReward(l);return Object.entries(r).map(([k,v])=>giveR(k,v)).join(" ")}
+// ---------- НАСТРОЙКИ ИГРОКА ----------
+let PREF={lang:"ru",sfx:true,mus:false,vol:.5};
+try{Object.assign(PREF,JSON.parse(localStorage.getItem("osuPrefs")||"{}"))}catch(e){}
+if(!localStorage.getItem("osuPrefs")){const nl=(navigator.language||"ru").slice(0,2);PREF.lang=nl==="es"?"es":nl==="ru"?"ru":"en"}
+function savePref(){try{localStorage.setItem("osuPrefs",JSON.stringify(PREF))}catch(e){}}
+// ---------- ЗВУК И МУЗЫКА (WebAudio, без файлов) ----------
+let ACX=null;function ac(){if(!ACX){try{ACX=new(window.AudioContext||window.webkitAudioContext)()}catch(e){ACX=null}}if(ACX&&ACX.state==="suspended")ACX.resume().catch(()=>{});return ACX}
+function tone(f,d,type,v,delay){const c=ac();if(!c)return;const t=c.currentTime+(delay||0);const o=c.createOscillator(),g=c.createGain();o.type=type||"square";o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(Math.max(.0001,(v||.1)*PREF.vol),t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
+let sfxLast=0;
+function sfx(n){if(!PREF.sfx)return;try{const now=performance.now();if((n==="hit"||n==="crit")&&(typeof skip!=="undefined"&&skip||now-sfxLast<45))return;if(n==="hit"||n==="crit")sfxLast=now;
+ const seq=(a,dt,type,v)=>a.forEach((f,i)=>tone(f,.18,type||"square",v||.07,i*dt));
+ switch(n){case"click":tone(880,.04,"square",.04);break;case"hit":tone(180+Math.random()*60,.07,"triangle",.09);break;case"crit":tone(620,.08,"sawtooth",.07);tone(930,.12,"square",.05,.05);break;
+ case"skill":seq([523,659,784,1047],.05,"square",.06);break;case"win":seq([523,659,784,1047,1319],.09,"square",.07);break;case"lose":seq([392,330,262,196],.12,"triangle",.09);break;
+ case"lvl":seq([784,988,1175,1568],.07,"square",.06);break;case"pull":tone(330,.3,"sine",.08);break;
+ case"A":seq([659,880,1047],.07,"triangle",.08);break;case"S":seq([659,880,1047,1319],.07,"square",.07);break;case"SS":seq([523,784,1047,1319,1568],.06,"sawtooth",.06);break;
+ case"EX":seq([523,659,784,1047,1319,1568,2093],.05,"square",.07);seq([262,330,392],.0,"sawtooth",.05);break}}catch(e){}}
+let musT=0,musStep=0;const MUS_CH=[[220,262,330],[175,220,262],[262,330,392],[196,247,294]];
+function musicStart(){if(musT||!PREF.mus)return;if(!ac())return;musT=setInterval(()=>{if(!PREF.mus)return musicStop();const ch=MUS_CH[Math.floor(musStep/16)%4],s=musStep%16;
+ if(s%4===0)tone(ch[0]/2,.25,"triangle",.07);tone(ch[s%3]*(s%8<4?2:4),.12,"square",.025);if(s%8===4)tone(90,.05,"sawtooth",.03);musStep++},60000/140/4)}
+function musicStop(){clearInterval(musT);musT=0}
+document.addEventListener("pointerdown",()=>{ac();if(PREF.mus)musicStart()},{once:true});
+// ---------- СОБЫТИЯ ДНЯ ----------
+const EVENTS=[{n:"Воскресный марафон",d:"x2 награды Арены",k:"arena"},{n:"PP-понедельник",d:"x2 Ⓟ на PP-фарм картах",k:"ppmap"},{n:"Данж-вторник",d:"x2 добыча данжей",k:"dung"},{n:"Золотая среда",d:"x2 золото с боёв",k:"gold"},{n:"Четверг опыта",d:"x2 опыт аккаунта",k:"xp"},{n:"Книжная пятница",d:"x2 книги навыков",k:"books"},{n:"Субботний турнир",d:"x2 награды Арены",k:"arena"}];
+const ev=()=>EVENTS[new Date().getUTCDay()];const evm=k=>ev().k===k?2:1;
+function untilUTC(days){const d=new Date(),e=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate()+days));const ms=e-d,h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);return h>=24?`${Math.floor(h/24)}d ${h%24}h`:`${h}h ${m}m`}
+// ---------- СМЕННЫЕ БАННЕРЫ ----------
+const WEEK=Math.floor((Date.now()/864e5+3)/7);const BIG_CC=["US","RU","JP","KR","PL","DE","CN","BR","FR","CA","GB","TW","PH","ID","CL","AU","FI","VN","UA","AR"];
+const BANNERS=[{id:"std",n:"Легенды круга",d:"Стандартный баннер со всеми игроками."},{id:"feat",n:"Фокус недели",d:"Повышенный шанс: 50% S+ и A выпадений — игроки недели"},{id:"cc",n:"Страна недели",d:"Все крутки — игроки из страны недели"},{id:"mode",n:"Режим недели",d:"Все крутки — игроки режима недели"}];
+const weekCC=BIG_CC[WEEK%BIG_CC.length],weekMode=["t","c","m","o"][WEEK%4];
+function featured(){const hi=POOL.EX.concat(POOL.SS,POOL.S),a=POOL.A;return{s:hi[WEEK%hi.length],a:[a[(WEEK*7919)%a.length],a[(WEEK*104729+13)%a.length]]}}
+const FPOOL={};function filtPool(key,rank,fn){const k=key+rank;if(!FPOOL[k])FPOOL[k]=POOL[rank].filter(u=>fn(C(u)));return FPOOL[k]}
+function bannerPool(rank){const b=S.banner||"std";if(b==="feat"){const f=featured();if(RI(rank)>=6&&Math.random()<.5)return[f.s];if(rank==="A"&&Math.random()<.5)return f.a}
+ if(b==="cc"){const p=filtPool("cc"+weekCC,rank,c=>c.cc===weekCC);if(p.length)return p}if(b==="mode"){const p=filtPool("m"+weekMode,rank,c=>c.mode===weekMode);if(p.length)return p}return POOL[rank].length?POOL[rank]:POOL.F}
+function bannerTitle(b){return b.id==="cc"?`${tr(b.n)}: ${weekCC}`:b.id==="mode"?`${tr(b.n)}: ${MODE[weekMode]}`:tr(b.n)}
+
+// ---------- ЯЗЫКИ (RU / EN / ES) ----------
+const I18N_RAW=[
+["Добро пожаловать","Welcome","Bienvenido"],["Ежедневная награда","Daily reward","Recompensa diaria"],["Уже получено сегодня","Already claimed today","Ya reclamado hoy"],
+["Ваша команда","Your team","Tu equipo"],["Боевая сила","Combat power","Poder de combate"],["Синергия","Synergy","Sinergia"],["Инвентарь","Inventory","Inventario"],["Статистика","Statistics","Estadísticas"],
+["Главная","Home","Inicio"],["Гача","Gacha","Gacha"],["Коллекция","Collection","Colección"],["Индекс","Index","Índice"],["Команда","Team","Equipo"],["Данжи","Dungeons","Mazmorras"],["Локации","Locations","Zonas"],
+["Башня","Tower","Torre"],["Академия","Academy","Academia"],["Задания","Quests","Misiones"],["Арена","Arena","Arena"],["Рынок","Market","Mercado"],["Топ","Top","Top"],
+["Аккаунт ур.","Account lv.","Cuenta nv."],["Прохождение","Completion","Progreso"],["Энергия","Energy","Energía"],["Золото","Gold","Oro"],["Ключи данжей","Dungeon keys","Llaves"],["Книги навыков","Skill books","Libros de habilidad"],
+["Баннер","Banner","Banner"],["Легенды круга","Circle Legends","Leyendas del círculo"],["Фокус недели","Weekly Focus","Enfoque semanal"],["Страна недели","Country of the Week","País de la semana"],["Режим недели","Mode of the Week","Modo de la semana"],
+["Шансы","Rates","Probabilidades"],["Гарант S+ на 70 крутке","Guaranteed S+ at pull 70","S+ garantizado en la tirada 70"],["В x10 минимум один B+.","x10 guarantees at least one B+.","x10 garantiza al menos un B+."],["Дубликаты дают ✦ эссенцию.","Duplicates give ✦ essence.","Los duplicados dan ✦ esencia."],
+["Крутка","Pull","Tirada"],["без анимации портала","skip portal animation","sin animación del portal"],["Последние открытия","Recent pulls","Últimas tiradas"],["Пока пусто","Nothing yet","Aún vacío"],
+["Результат","Result","Resultado"],["Нажимайте на карточки, чтобы открыть","Tap the cards to reveal","Toca las cartas para revelar"],["Открыть все","Reveal all","Revelar todo"],["Закрыть","Close","Cerrar"],["Дубликат","Duplicate","Duplicado"],
+["Сортировка","Sort","Ordenar"],["По силе","By power","Por poder"],["По рангу","By rank","Por rango"],["По уровню","By level","Por nivel"],["По имени","By name","Por nombre"],["Поиск","Search","Buscar"],
+["Пусто — сделайте крутку в Гаче!","Empty — make a pull in Gacha!","Vacío — ¡haz una tirada en Gacha!"],["Все ранги","All ranks","Todos los rangos"],["Все режимы","All modes","Todos los modos"],["Все","All","Todos"],["Открытые","Unlocked","Desbloqueados"],["Не открытые","Locked","Bloqueados"],
+["Найдено","Found","Encontrados"],["Никого не найдено","Nobody found","No se encontró a nadie"],["Игрок","Player","Jugador"],["Ранг","Rank","Rango"],["Режим","Mode","Modo"],["Страна","Country","País"],["Навык","Skill","Habilidad"],["Пассивка","Passive","Pasiva"],
+["Команда (до 5)","Team (up to 5)","Equipo (hasta 5)"],["Авто-подбор","Auto-pick","Auto-elegir"],["Очистить","Clear","Limpiar"],["Слот","Slot","Ranura"],["Пусто","Empty","Vacío"],
+["игроков одного ранга, страны или режима дают бонус синергии.","players of the same rank, country or mode give a synergy bonus.","jugadores del mismo rango, país o modo dan bonus de sinergia."],
+["Нажмите, чтобы добавить/убрать (топ-120 по силе)","Tap to add/remove (top 120 by power)","Toca para añadir/quitar (top 120 por poder)"],["Нет персонажей — откройте их в Гаче","No characters — unlock them in Gacha","Sin personajes — desbloquéalos en Gacha"],
+["Каждый данж даёт свой ресурс для прокачки. Вход стоит","Each dungeon gives its own upgrade resource. Entry costs","Cada mazmorra da su propio recurso. La entrada cuesta"],["обновление каждый день). 15 уровней сложности; чем выше — тем больше добыча.","refreshes daily). 15 difficulty levels; higher means more loot.","se renueva a diario). 15 niveles; más alto = más botín."],
+["Тратят энергию. Дают золото, книги навыков и опыт аккаунта. Открываются с уровнем аккаунта.","Cost energy. Give gold, skill books and account XP. Unlock with account level.","Gastan energía. Dan oro, libros y XP de cuenta. Se desbloquean con el nivel."],
+["Уровень","Level","Nivel"],["Сложность","Difficulty","Dificultad"],["В бой","Fight","Luchar"],["Войти","Enter","Entrar"],["пройдено","cleared","completado"],["Пройдено","Cleared","Completado"],["уровень","level","nivel"],["сложность","difficulty","dificultad"],
+["Этаж","Floor","Piso"],["БОСС","BOSS","JEFE"],["Прошлый этаж","Previous floor","Piso anterior"],["Рекомендуемая сила","Recommended power","Poder recomendado"],["ваша","yours","tu"],["Башня покорена!","Tower conquered!","¡Torre conquistada!"],["Все 150 этажей пройдены.","All 150 floors cleared.","150 pisos completados."],
+["Зона","Zone","Zona"],["этажи","floors","pisos"],["Особенность","Modifier","Modificador"],["Зоны башни","Tower zones","Zonas de la torre"],
+["Академия — улучшения для всех","Academy — upgrades for everyone","Academia — mejoras para todos"],["Обмен","Exchange","Intercambio"],
+["Ежедневные","Daily","Diarias"],["Еженедельные","Weekly","Semanales"],["Достижения","Achievements","Logros"],["Забрать все","Claim all","Reclamar todo"],["Забрать","Claim","Reclamar"],["Получено","Claimed","Reclamado"],["Доступно наград","Rewards available","Recompensas disponibles"],
+["Награды за уровни аккаунта","Account level rewards","Recompensas por nivel de cuenta"],["сброс в 00:00 UTC; еженедельные — по понедельникам","reset at 00:00 UTC; weekly — on Mondays","reinicio a las 00:00 UTC; semanales — los lunes"],
+["Сохранение","Save","Guardado"],["Экспорт","Export","Exportar"],["Импорт","Import","Importar"],["Сбросить прогресс","Reset progress","Reiniciar progreso"],["Строка сохранения","Save string","Código de guardado"],
+["Прогресс автоматически сохраняется в","Progress is saved automatically in","El progreso se guarda automáticamente en"],["браузера.","of the browser.","del navegador."],
+["Данные игроков и аватары — с","Player data and avatars — from","Datos y avatares de jugadores — de"],["собраны на момент создания игры. Фан-проект, не связан с","collected when the game was made. Fan project, not affiliated with","recopilados al crear el juego. Proyecto fan, no afiliado a"],
+["Победа!","Victory!","¡Victoria!"],["Поражение","Defeat","Derrota"],["Продолжить","Continue","Continuar"],["Пропустить","Skip","Saltar"],["Раунд","Round","Ronda"],["Враги","Enemies","Enemigos"],
+["Очерёдность хода","Turn order","Orden de turnos"],["Урон игроков","Player damage","Daño de jugadores"],["Журнал","Log","Registro"],["Урон команды","Team damage","Daño del equipo"],["Урон врагов","Enemy damage","Daño enemigo"],["Лечение","Healing","Curación"],["Криты","Crits","Críticos"],["Навыки","Skills","Habilidades"],["Макс. удар","Max hit","Golpe máx."],
+["Макс. комбо","Max combo","Combo máx."],["Раундов","Rounds","Rondas"],["выбывает","is out","queda fuera"],["Время вышло!","Time's up!","¡Se acabó el tiempo!"],["Тень","Shadow","Sombra"],["КРИТ","CRIT","CRÍT"],["ЩИТ","SHIELD","ESCUDO"],
+["Основное","Main","Principal"],["Тренировка","Training","Entrenamiento"],["Моды","Mods","Mods"],["Пробуждение","Awakening","Despertar"],["Повышение ранга","Rank up","Subir rango"],["Убрать из команды","Remove from team","Quitar del equipo"],["В команду","Add to team","Al equipo"],
+["нужен ур. 20, макс. ранг","needs lv. 20, max rank","requiere nv. 20, rango máx."],["Ресурсы тренировки добываются в данжах.","Training resources drop in dungeons.","Los recursos de entrenamiento salen en mazmorras."],["Ещё не открыт — выбейте в гаче.","Not unlocked yet — pull it in gacha.","Aún bloqueado — consíguelo en gacha."],
+["подписчиков","followers","seguidores"],["профиль","profile","perfil"],["Сила","Power","Poder"],["Защита","Defense","Defensa"],["Скорость","Speed","Velocidad"],["за уровень","per level","por nivel"],["Макс","Max","Máx"],["Дубл.","Dup.","Dup."],
+["Недостаточно золота","Not enough gold","Oro insuficiente"],["Недостаточно PP","Not enough PP","PP insuficientes"],["Недостаточно энергии","Not enough energy","Energía insuficiente"],["Сначала соберите команду!","Build a team first!","¡Primero arma un equipo!"],["В команде максимум 5","Team is limited to 5","Máximo 5 en el equipo"],
+["Нужен уровень аккаунта","Account level required","Se requiere nivel de cuenta"],["Нет ключей","No keys","Sin llaves"],["приходите завтра или купите в Академии","come back tomorrow or buy in the Academy","vuelve mañana o compra en la Academia"],["Половина энергии возвращена.","Half of the energy refunded.","Se devolvió la mitad de la energía."],["Ключ возвращён.","Key refunded.","Llave devuelta."],["прокачайте команду!","upgrade your team!","¡mejora tu equipo!"],
+["Награда ждёт во вкладке «Задания»","A reward awaits in the Quests tab","Una recompensa te espera en Misiones"],["Получено наград","Rewards claimed","Recompensas reclamadas"],["Нечего забирать","Nothing to claim","Nada que reclamar"],["улучшено!","upgraded!","¡mejorado!"],["Ранг повышен до","Rank raised to","Rango subido a"],["Пробуждение!","Awakened!","¡Despertado!"],
+["Скопируйте строку","Copy the string","Copia el código"],["Импортировано","Imported","Importado"],["Неверная строка сохранения","Invalid save string","Código de guardado inválido"],["Удалить весь прогресс?","Delete all progress?","¿Borrar todo el progreso?"],["Прогресс сброшен","Progress reset","Progreso reiniciado"],["Не удалось сохранить прогресс","Failed to save progress","No se pudo guardar"],["Ошибка боя","Battle error","Error de combate"],["Ошибка","Error","Error"],
+["Кристаллы аима","Aim crystals","Cristales de aim"],["Сердца","Hearts","Corazones"],["Осколки точности","Accuracy shards","Fragmentos de precisión"],["Сферы скорости","Speed orbs","Orbes de velocidad"],["Мод-чипы","Mod chips","Chips de mod"],["Эссенция","Essence","Esencia"],["Билеты повышения","Rank-up tickets","Boletos de rango"],["Книги","Books","Libros"],["Ключи","Keys","Llaves"],
+["Кристальная шахта аима","Aim Crystal Mine","Mina de cristales de aim"],["Сердце марафона","Marathon Heart","Corazón del maratón"],["Зал точности","Hall of Accuracy","Sala de precisión"],["Стрим-тоннель","Stream Tunnel","Túnel de streams"],["Лаборатория модов","Mod Laboratory","Laboratorio de mods"],["Храм пробуждения","Temple of Awakening","Templo del despertar"],
+["для тренировки АТК","for ATK training","para entrenar ATQ"],["для тренировки HP","for HP training","para entrenar HP"],["для тренировки защиты","for DEF training","para entrenar DEF"],["для тренировки скорости","for SPD training","para entrenar VEL"],["для прокачки модов","for mod upgrades","para mejorar mods"],["пробуждение; с 8 ур. — 🎫 билеты повышения ранга","awakening; from lv. 8 — 🎫 rank-up tickets","despertar; desde nv. 8 — 🎫 boletos de rango"],
+["PP-фарм карты","PP Farm Maps","Mapas de farmeo PP"],["Основной источник Ⓟ PP","Main source of Ⓟ PP","Fuente principal de Ⓟ PP"],["Тренировочный круг","Training Circle","Círculo de entrenamiento"],["Основной источник 🪙","Main source of 🪙","Fuente principal de 🪙"],["Стрим-лес","Stream Forest","Bosque de streams"],["Джамп-горы","Jump Mountains","Montañas de saltos"],["Слайдер-пещеры","Slider Caves","Cuevas de sliders"],["Спиннер-храм","Spinner Temple","Templo del spinner"],["Хардрок-цитадель","HardRock Citadel","Ciudadela HardRock"],["Флешлайт-бездна","Flashlight Abyss","Abismo Flashlight"],["Много 🪙","Lots of 🪙","Mucho 🪙"],["Всё и много","Everything, a lot","Todo y mucho"],["Эндгейм","Endgame","Endgame"],
+["Круг новичка","Rookie Circle","Círculo novato"],["Розовый сад","Pink Garden","Jardín rosa"],["Красная пустыня","Red Desert","Desierto rojo"],["Ледяные ноты","Icy Notes","Notas heladas"],["Неоновый город","Neon City","Ciudad neón"],["Ядовитое болото","Toxic Swamp","Pantano tóxico"],["Золотой храм","Golden Temple","Templo dorado"],["Ночной клуб","Night Club","Club nocturno"],["Грозовой пик","Storm Peak","Pico tormenta"],["Вулкан","Volcano","Volcán"],["Пустота","Void","Vacío"],["Кровавая луна","Blood Moon","Luna de sangre"],["Зеркальный зал","Mirror Hall","Sala de espejos"],["Хаос","Chaos","Caos"],["Вершина","Summit","Cumbre"],
+["Без особенностей","No modifier","Sin modificador"],["Враги лечат 3% HP в раунд","Enemies heal 3% HP per round","Los enemigos curan 3% HP por ronda"],["Враги +15% АТК","Enemies +15% ATK","Enemigos +15% ATQ"],["Ваша скорость −8","Your speed −8","Tu velocidad −8"],["Враги +12% шанс крита","Enemies +12% crit chance","Enemigos +12% prob. crítico"],["Команда теряет 3% HP в раунд","Team loses 3% HP per round","El equipo pierde 3% HP por ronda"],["Враги +25% HP","Enemies +25% HP","Enemigos +25% HP"],["Враги набирают энергию в 1.5 раза быстрее","Enemies gain energy 1.5x faster","Los enemigos ganan energía 1.5x más rápido"],["Каждый раунд бьёт молния","Lightning strikes every round","Cae un rayo cada ronda"],["Враги +20% АТК и +10% HP","Enemies +20% ATK and +10% HP","Enemigos +20% ATQ y +10% HP"],["Ваша защита −30%","Your defense −30%","Tu defensa −30%"],["Враги вампирят 20% урона","Enemies leech 20% of damage","Los enemigos roban 20% del daño"],["Враги отражают 12% урона","Enemies reflect 12% damage","Los enemigos reflejan 12% del daño"],["Враги начинают с полной энергией","Enemies start with full energy","Los enemigos empiezan con energía llena"],["Враги +15% ко всему, крит +8%","Enemies +15% to all, crit +8%","Enemigos +15% a todo, crítico +8%"],
+["Мастерство аима","Aim Mastery","Maestría de aim"],["Выносливость","Stamina","Resistencia"],["Стабильность","Stability","Estabilidad"],["Спонсоры","Sponsors","Patrocinadores"],["Опыт турниров","Tournament Experience","Experiencia de torneos"],["Энерго-напиток","Energy Drink","Bebida energética"],["Связка ключей","Key Ring","Llavero"],["Удачливый лут","Lucky Loot","Botín afortunado"],
+["Точный прицел","Precise Aim","Puntería precisa"],["Снайперский флик","Sniper Flick","Flick de francotirador"],["Стрим-шквал","Stream Barrage","Ráfaga de streams"],["Техничный слайдер","Technical Slider","Slider técnico"],["Бесконечный слайдер","Endless Slider","Slider infinito"],["Восстановление","Recovery","Recuperación"],["Второе дыхание","Second Wind","Segundo aliento"],["Перерыв","Break Time","Descanso"],["Скрытая угроза","Hidden Threat","Amenaza oculta"],["Тьма FL","FL Darkness","Oscuridad FL"],["Вампир-комбо","Vampire Combo","Combo vampiro"],["Похищение PP","PP Theft","Robo de PP"],["Поглощение","Absorption","Absorción"],["Кража рейтинга","Rank Theft","Robo de ranking"],["Стена NoFail","NoFail Wall","Muro NoFail"],["Стальная кисть","Steel Wrist","Muñeca de acero"],["Перфект-ран","Perfect Run","Partida perfecta"],["Чок-иммунитет","Choke Immunity","Inmune al choke"],["Найткор-рывок","Nightcore Dash","Embestida Nightcore"],["Скорость x1.5","Speed x1.5","Velocidad x1.5"],["Вихрь спиннера","Spinner Vortex","Vórtice spinner"],["Бонус-спин","Bonus Spin","Giro bonus"],
+["Мощный выстрел по одной цели","Powerful shot at one target","Disparo potente a un objetivo"],["нот по случайным врагам","notes at random enemies","notas a enemigos al azar"],["каждая","each","cada una"],["Слайдер проходит по всем врагам","Slider sweeps all enemies","El slider barre a todos los enemigos"],["по всем и +30 энергии команде","to all and +30 team energy","a todos y +30 energía al equipo"],["Вращение","Spin","Giro"],["Лечит команду на","Heals the team for","Cura al equipo por"],["урона 2 раунда + удар","damage for 2 rounds + hit","daño 2 rondas + golpe"],["АТК команды +35% на 2 раунда + удар","Team ATK +35% for 2 rounds + hit","ATQ del equipo +35% 2 rondas + golpe"],["АТК на 2 раунда, удар по всем","ATK for 2 rounds, hit all","ATQ 2 rondas, golpe a todos"],["Два молниеносных удара","Two lightning hits","Dos golpes relámpago"],["ход вне очереди","extra turn","turno extra"],["Удар по всем","Hit all","Golpe a todos"],["лечит 50% нанесённого","heals 50% of damage dealt","cura el 50% del daño"],["Щит","Shield","Escudo"],["Враги","Enemies","Enemigos"],
+["Стальные нервы","Steel Nerves","Nervios de acero"],["Аим-бог","Aim God","Dios del aim"],["Марафонец","Marathoner","Maratonista"],["Спидстер","Speedster","Velocista"],["Хирург","Surgeon","Cirujano"],["Чокер-нет","No-Choke","Sin choke"],["Энерджайзер","Energizer","Energizante"],["Регенерация","Regeneration","Regeneración"],["Криты PP","PP Crits","Críticos PP"],["Толстокожий","Thick-skinned","Piel gruesa"],
+["защиты","defense","defensa"],["скорости","speed","velocidad"],["шанс крита","crit chance","prob. crítico"],["урон навыка","skill damage","daño de habilidad"],["набор энергии","energy gain","ganancia de energía"],["лечит 4% HP каждый раунд","heals 4% HP each round","cura 4% HP cada ronda"],["урон крита","crit damage","daño crítico"],["и +6% защиты","and +6% defense","y +6% defensa"],
+["Зайти в игру","Log in to the game","Entrar al juego"],["Сделать 10 круток","Make 10 pulls","Hacer 10 tiradas"],["Провести 8 боёв","Fight 8 battles","Librar 8 combates"],["Пройти 4 данжа","Clear 4 dungeons","Superar 4 mazmorras"],["Пройти 5 локаций","Clear 5 locations","Superar 5 zonas"],["Победить на 2 этажах башни","Win on 2 tower floors","Ganar en 2 pisos de la torre"],["Повысить уровень 5 раз","Level up 5 times","Subir de nivel 5 veces"],["Улучшить навык","Upgrade a skill","Mejorar una habilidad"],["Тренировка 3 раза","Train 3 times","Entrenar 3 veces"],["Улучшить мод 2 раза","Upgrade mods 2 times","Mejorar mods 2 veces"],["Потратить 40 ⚡","Spend 40 ⚡","Gastar 40 ⚡"],["Провести 3 боя на Арене","Fight 3 Arena battles","Librar 3 combates en la Arena"],
+["Сделать 60 круток","Make 60 pulls","Hacer 60 tiradas"],["Провести 50 боёв","Fight 50 battles","Librar 50 combates"],["Пройти 25 данжей","Clear 25 dungeons","Superar 25 mazmorras"],["Пройти 10 этажей башни","Clear 10 tower floors","Superar 10 pisos"],["Пройти 30 локаций","Clear 30 locations","Superar 30 zonas"],["Повысить уровень 30 раз","Level up 30 times","Subir de nivel 30 veces"],["Повысить ранг игрока","Rank up a player","Subir de rango a un jugador"],
+["Пройти","Clear","Superar"],["этаж башни","tower floor","piso de la torre"],["Собрать","Collect","Reunir"],["игроков","players","jugadores"],["круток","pulls","tiradas"],["Уровень аккаунта","Account level","Nivel de cuenta"],["Получить EX ранг","Get an EX rank","Conseguir rango EX"],["Все EX игроки","All EX players","Todos los EX"],["Навык до 10 уровня","Skill to level 10","Habilidad a nivel 10"],["Пробудить до 5★","Awaken to 5★","Despertar a 5★"],["Первое повышение ранга","First rank up","Primera subida de rango"],["повышений ранга","rank ups","subidas de rango"],["Мод до 10 уровня","Mod to level 10","Mod a nivel 10"],["Все данжи на 15 уровне","All dungeons at level 15","Todas las mazmorras nv. 15"],["Все локации на 10 сложности","All locations at difficulty 10","Todas las zonas en dificultad 10"],["Собрать всех игроков","Collect all players","Reunir a todos"],
+["Игроков в игре","Players in game","Jugadores en el juego"],["Открыто","Unlocked","Desbloqueados"],["Круток","Pulls","Tiradas"],["Боёв","Battles","Combates"],["Повышений ранга","Rank ups","Subidas de rango"],["Высший этаж","Highest floor","Piso más alto"],
+["Более 300 000 реальных игроков","Over 300,000 real players","Más de 300.000 jugadores reales"],["с аватарками и баннерами с","with avatars and banners from","con avatares y banners de"],["Ранг зависит от популярности и места в рейтинге","Rank depends on popularity and leaderboard position","El rango depende de la popularidad y la posición"],["базовая сила игрока. Собирай пятёрку, качай, проходи данжи, локации и Башню.","base power of a player. Build your five, level up, clear dungeons, locations and the Tower.","poder base del jugador. Arma tu quinteto, mejora y supera mazmorras, zonas y la Torre."],
+["каждые 3 мин","every 3 min","cada 3 min"],["ключи данжей обновляются каждый день","dungeon keys refresh daily","las llaves se renuevan a diario"],
+["Событие дня","Event of the day","Evento del día"],["до конца","left","restante"],["Воскресный марафон","Sunday Marathon","Maratón dominical"],["PP-понедельник","PP Monday","Lunes de PP"],["Данж-вторник","Dungeon Tuesday","Martes de mazmorras"],["Золотая среда","Golden Wednesday","Miércoles dorado"],["Четверг опыта","XP Thursday","Jueves de XP"],["Книжная пятница","Book Friday","Viernes de libros"],["Субботний турнир","Saturday Tournament","Torneo del sábado"],
+["x2 награды Арены","x2 Arena rewards","x2 recompensas de Arena"],["x2 Ⓟ на PP-фарм картах","x2 Ⓟ on PP farm maps","x2 Ⓟ en mapas de farmeo"],["x2 добыча данжей","x2 dungeon loot","x2 botín de mazmorras"],["x2 золото с боёв","x2 gold from battles","x2 oro de combates"],["x2 опыт аккаунта","x2 account XP","x2 XP de cuenta"],["x2 книги навыков","x2 skill books","x2 libros de habilidad"],
+["Стандартный баннер со всеми игроками.","Standard banner with all players.","Banner estándar con todos los jugadores."],["Повышенный шанс: 50% S+ и A выпадений — игроки недели","Rate-up: 50% of S+ and A pulls are the featured players","Probabilidad aumentada: 50% de S+ y A son los destacados"],["Все крутки — игроки из страны недели","All pulls are players from the country of the week","Todas las tiradas son jugadores del país de la semana"],["Все крутки — игроки режима недели","All pulls are players of the mode of the week","Todas las tiradas son jugadores del modo de la semana"],["Смена через","Rotates in","Cambia en"],["Игроки недели","Featured players","Jugadores destacados"],
+["Арена","Arena","Arena"],["Рейтинг","Rating","Rating"],["Билеты арены","Arena tickets","Boletos de arena"],["Соперники","Opponents","Rivales"],["Обновить","Refresh","Actualizar"],["Вызвать","Challenge","Desafiar"],["онлайн-игрок","online player","jugador en línea"],["тренировочный соперник","training opponent","rival de práctica"],["Нет билетов арены — приходите завтра","No arena tickets — come back tomorrow","Sin boletos de arena — vuelve mañana"],["Бои против команд других игроков. 5 билетов в день.","Battles against other players' teams. 5 tickets per day.","Combates contra equipos de otros jugadores. 5 boletos al día."],
+["Топ игроков по BP команды","Top players by team BP","Top de jugadores por BP del equipo"],["Место","Place","Puesto"],["BP команды","Team BP","BP del equipo"],["Ваше место","Your place","Tu puesto"],["Загрузка…","Loading…","Cargando…"],["Войдите в аккаунт, чтобы попасть в топ","Log in to appear in the top","Inicia sesión para aparecer en el top"],["Онлайн недоступен","Online unavailable","En línea no disponible"],
+["Рынок игроков","Player market","Mercado de jugadores"],["Купить","Buy","Comprar"],["Продать карту","Sell a card","Vender carta"],["Продать предмет","Sell an item","Vender objeto"],["Мои лоты","My listings","Mis ofertas"],["Снять","Withdraw","Retirar"],["Продавец","Seller","Vendedor"],["Цена","Price","Precio"],["Количество","Amount","Cantidad"],["Выставить","List","Publicar"],["Карта","Card","Carta"],["Предмет","Item","Objeto"],["Лотов нет","No listings","No hay ofertas"],["Продано","Sold","Vendido"],["Выручка получена","Earnings collected","Ganancias recibidas"],["Комиссия рынка 5%","Market fee 5%","Comisión del mercado 5%"],["Покупка совершена","Purchase complete","Compra realizada"],["Лот уже продан","Listing already sold","La oferta ya se vendió"],["Выставлено на рынок","Listed on the market","Publicado en el mercado"],["Чтобы торговать, войдите в аккаунт","Log in to trade","Inicia sesión para comerciar"],["Это ваш лот","This is your listing","Es tu oferta"],["Выберите карту","Choose a card","Elige una carta"],["Карты команды продать нельзя","Team cards cannot be sold","No se pueden vender cartas del equipo"],
+["Аккаунт","Account","Cuenta"],["Войти через Google","Sign in with Google","Entrar con Google"],["Войти через osu!","Sign in with osu!","Entrar con osu!"],["Выйти","Sign out","Salir"],["Вы вошли как","Signed in as","Sesión iniciada como"],["Гость","Guest","Invitado"],["Облачное сохранение","Cloud save","Guardado en la nube"],["Загрузить из облака","Load from cloud","Cargar de la nube"],["Сохранить в облако","Save to cloud","Guardar en la nube"],["Сохранено в облако","Saved to cloud","Guardado en la nube"],["Загружено из облака","Loaded from cloud","Cargado de la nube"],["В облаке нет сохранения","No cloud save","No hay guardado en la nube"],["Загрузить облачное сохранение? Текущий прогресс на этом устройстве будет заменён.","Load the cloud save? Progress on this device will be replaced.","¿Cargar el guardado de la nube? Se reemplazará el progreso de este dispositivo."],
+["Вход через osu! ещё не настроен владельцем игры","osu! sign-in is not configured yet","El inicio con osu! aún no está configurado"],["Откройте игру с сайта, чтобы войти","Open the game from the website to sign in","Abre el juego desde el sitio web para entrar"],["Не удалось войти","Sign-in failed","No se pudo iniciar sesión"],
+["Звук","Sound","Sonido"],["Музыка","Music","Música"],["Громкость","Volume","Volumen"],["Язык","Language","Idioma"],["Настройки","Settings","Ajustes"],["из","of","de"],["АТК","ATK","ATQ"],["за","for","por"],["ключ","key","llave"],["шт.","pcs.","uds."],["в день","per day","por día"],["всем","for all","a todos"],["с боёв","from battles","de combates"],["опыта","XP","XP"],["макс.","max","máx."],["энергии","energy","energía"],["добычи в данжах","dungeon loot","botín de mazmorras"],["Сердца выносливости","Stamina hearts","Corazones de resistencia"],["крит","crit","crít"],["дубл.","dup.","dup."],["макс","max","máx"],["Защита","Defense","Defensa"],["Ур.","Lv.","Nv."],["ур.","lv.","nv."],["Аим-шот","Aim Shot","Disparo de aim"],["Пиксель-перфект","Pixel Perfect","Pixel perfecto"],["Кросс-скрин джамп","Cross-screen Jump","Salto de pantalla"],["Флик в угол","Corner Flick","Flick a la esquina"],["Аим-контроль","Aim Control","Control de aim"],["Бёрст 1/4","1/4 Burst","Ráfaga 1/4"],["Деатстрим","Deathstream","Deathstream"],["Тап-буря","Tap Storm","Tormenta de taps"],["Альт-стрим","Alt Stream","Stream alterno"],["Сингл-тап 300bpm","Single-tap 300bpm","Single-tap 300bpm"],["Пулемёт нот","Note Machine Gun","Ametralladora de notas"],["Слайдер-арт","Slider Art","Arte de sliders"],["Кик-слайдер","Kick Slider","Kick slider"],["Слайдер-змея","Slider Snake","Serpiente slider"],["Реверс-слайдер","Reverse Slider","Slider inverso"],["Спиннер 477","Spinner 477","Spinner 477"],["Торнадо-спин","Tornado Spin","Giro tornado"],["Спин-торпеда","Spin Torpedo","Torpedo giratorio"],["Брейк-тайм","Break Time","Tiempo de descanso"],["Чилл-сессия","Chill Session","Sesión chill"],["Хилл-кривая","Heal Curve","Curva de curación"],["HR-щит","HR Shield","Escudo HR"],["Броня Easy","Easy Armor","Armadura Easy"],["Барьер ритма","Rhythm Barrier","Barrera de ritmo"],["SS-аура","SS Aura","Aura SS"],["Топ-плей","Top Play","Top play"],["Мотивация чата","Chat Motivation","Motivación del chat"],["Hidden-туман","Hidden Fog","Niebla Hidden"],["Ридинг-ловушка","Reading Trap","Trampa de lectura"],["Спидап-бёрст","Speed-up Burst","Ráfaga acelerada"],["DT-фарм","DT Farm","Farmeo DT"],["PP-вампиризм","PP Vampirism","Vampirismo PP"],["Криты PP","PP Crits","Críticos PP"],["Найдено","Found","Encontrados"],["Побед","Wins","Victorias"],["Недостаточно","Not enough","Insuficiente"],["Вход нужен для Рынка, Топа, Арены против живых игроков и облачного сохранения.","Sign-in is needed for the Market, Top, live Arena and cloud save.","Se requiere iniciar sesión para el Mercado, Top, Arena en vivo y guardado en la nube."],["Аккаунт и настройки","Account & settings","Cuenta y ajustes"],["Ваш BP команды","Your team BP","Tu BP de equipo"],["Баннер недели","Banner of the week","Banner de la semana"],["Навык:","Skill:","Habilidad:"],["Пассивка:","Passive:","Pasiva:"]
+];
+const LANGS={ru:"RU",en:"EN",es:"ES"};let LANG="ru";
+const I18N={en:new Map(),es:new Map()};I18N_RAW.forEach(r=>{I18N.en.set(r[0],r[1]);I18N.es.set(r[0],r[2])});
+const I18N_KEYS=I18N_RAW.map(r=>r[0]).sort((a,b)=>b.length-a.length);
+const I18N_RX=new RegExp("(?<![А-Яа-яЁё])("+I18N_KEYS.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![А-Яа-яЁё])","g");
+const CYR=/[А-Яа-яЁё]/;
+function tr(s){if(LANG==="ru"||!s||!CYR.test(s))return s;const M=I18N[LANG];const t=s.trim();if(M.has(t))return s.replace(t,M.get(t));return s.replace(I18N_RX,m=>M.get(m)||m)}
+let i18nBusy=false;
+function trNode(root){if(LANG==="ru")return;i18nBusy=true;try{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const v=n.nodeValue;if(v&&CYR.test(v)){if(n.__ru===undefined||n.__tr!==v)n.__ru=v;const t=tr(n.__ru);n.__tr=t;if(t!==v)n.nodeValue=t}}
+ if(root.querySelectorAll)root.querySelectorAll("[placeholder],[title]").forEach(e=>{["placeholder","title"].forEach(a=>{const v=e.getAttribute(a);if(v&&CYR.test(v)){if(!e["__ru_"+a])e["__ru_"+a]=v;e.setAttribute(a,tr(e["__ru_"+a]))}})})}finally{i18nBusy=false}}
+function untrAll(){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.__ru!==undefined&&n.nodeValue===n.__tr)n.nodeValue=n.__ru}document.querySelectorAll("[placeholder],[title]").forEach(e=>["placeholder","title"].forEach(a=>{if(e["__ru_"+a])e.setAttribute(a,e["__ru_"+a])}))}
+let i18nQ=new Set(),i18nT=0;
+const i18nObs=new MutationObserver(ms=>{if(i18nBusy||LANG==="ru")return;for(const m of ms){if(m.type==="characterData")i18nQ.add(m.target.parentNode||m.target);else m.addedNodes.forEach(x=>i18nQ.add(x.nodeType===3?x.parentNode:x))}
+ if(!i18nT)i18nT=requestAnimationFrame(()=>{i18nT=0;const q=[...i18nQ];i18nQ.clear();q.forEach(x=>{if(x&&x.isConnected)trNode(x)})})});
+function setLang(l){if(!LANGS[l])l="ru";const was=LANG;LANG=l;document.documentElement.lang=l;PREF.lang=l;savePref();if(was!=="ru"&&l==="ru"){untrAll()}if(l!=="ru"){untrAll();trNode(document.body)}const s=$("langSel");if(s)s.value=l}
+
+// ---------- НАСТРОЙКИ ОНЛАЙНА ----------
+const CFG={
+ firebase:{apiKey:"AIzaSyA80Osn_rxK4tfV_0yddmdw2WmHPq0ijvI",authDomain:"gacha-on-osu.firebaseapp.com",projectId:"gacha-on-osu",storageBucket:"gacha-on-osu.firebasestorage.app",messagingSenderId:"256851083330",appId:"1:256851083330:web:19df7a78f7a610417feddb",measurementId:"G-HJP2PZ8CM2"},
+ osuClientId:"74801",   // Client ID приложения OAuth на osu.ppy.sh
+ osuWorker:""      // адрес Cloudflare Worker из server/osu-auth-worker.js, например https://osu-auth.имя.workers.dev
+};
+const FBV="10.12.2";let FB=null,fbLoading=null;
+function fbInit(){if(FB)return Promise.resolve(FB);if(fbLoading)return fbLoading;if(!CFG.firebase)return Promise.reject(new Error("no config"));
+ const g=m=>import(`https://www.gstatic.com/firebasejs/${FBV}/firebase-${m}.js`);
+ fbLoading=Promise.all([g("app"),g("auth"),g("firestore")]).then(([app,A,F])=>{const a=app.initializeApp(CFG.firebase);FB={A,F,auth:A.getAuth(a),db:F.getFirestore(a),user:null};
+  A.onAuthStateChanged(FB.auth,u=>{FB.user=u;onUser(u)});return FB}).catch(e=>{fbLoading=null;throw e});return fbLoading}
+const isWeb=()=>/^https?:$/.test(location.protocol);
+function me(){return FB&&FB.user}
+function myName(){const u=me();return u?(u.displayName||(u.email||"").split("@")[0]||"Player"):"Гость"}
+function onUser(u){renderAcct();if(u){pushProfile(true);claimSales().catch(()=>{});toast(tr("Вы вошли как")+" "+myName())}if(tab==="top"||tab==="market"||tab==="arena")render()}
+async function loginGoogle(){if(!isWeb())return toast("Откройте игру с сайта, чтобы войти");try{const f=await fbInit();await f.A.signInWithPopup(f.auth,new f.A.GoogleAuthProvider())}catch(e){console.error(e);toast(tr("Не удалось войти")+": "+(e.code||e.message))}}
+function loginOsu(){if(!CFG.osuClientId||!CFG.osuWorker)return toast("Вход через osu! ещё не настроен владельцем игры");if(!isWeb())return toast("Откройте игру с сайта, чтобы войти");
+ const back=location.href.split("#")[0];location.href=`https://osu.ppy.sh/oauth/authorize?client_id=${encodeURIComponent(CFG.osuClientId)}&redirect_uri=${encodeURIComponent(CFG.osuWorker.replace(/\/$/,"")+"/callback")}&response_type=code&scope=identify&state=${encodeURIComponent(back)}`}
+async function osuReturn(){const h=new URLSearchParams(location.hash.slice(1));const t=h.get("osutoken");if(!t)return;history.replaceState(null,"",location.pathname+location.search);
+ try{const f=await fbInit();const cr=await f.A.signInWithCustomToken(f.auth,t);const nm=h.get("name"),av=h.get("avatar");if(nm&&cr.user)await f.A.updateProfile(cr.user,{displayName:nm,photoURL:av||null});onUser(cr.user)}catch(e){console.error(e);toast(tr("Не удалось войти")+": "+(e.code||e.message))}}
+async function logout(){if(FB)await FB.A.signOut(FB.auth);renderAcct();render()}
+const teamBP=()=>S.team.reduce((a,u)=>a+curBP(u),0);
+let pushT=0;
+async function pushProfile(force){const u=me();if(!u)return;if(!force&&Date.now()-pushT<20000)return;pushT=Date.now();const{F,db}=FB;
+ const team=S.team.map(x=>{const o=S.col[x];return{u:+x,l:o.lvl,s:o.stars,r:o.rk||"",k:o.sk}});
+ try{await F.setDoc(F.doc(db,"players",u.uid),{name:myName().slice(0,32),photo:u.photoURL||"",bp:teamBP(),power:teamPower(),team,alv:S.alv,floor:S.floor-1,rating:S.arena.rating,t:Date.now()});
+  await F.setDoc(F.doc(db,"players",u.uid,"private","save"),{d:JSON.stringify(S),t:Date.now()})}catch(e){console.warn("push",e.code||e)}}
+async function cloudLoad(){const u=me();if(!u)return;try{const s=await FB.F.getDoc(FB.F.doc(FB.db,"players",u.uid,"private","save"));if(!s.exists())return toast("В облаке нет сохранения");
+ if(!confirm(tr("Загрузить облачное сохранение? Текущий прогресс на этом устройстве будет заменён.")))return;S=Object.assign(fresh(),JSON.parse(s.data().d));sanitize();save();render();toast("Загружено из облака")}catch(e){toast(tr("Ошибка")+": "+(e.code||e.message))}}
+async function cloudSave(){if(!me())return;pushT=0;await pushProfile(true);toast("Сохранено в облако")}
+function renderAcct(){const b=$("acctBtn");if(!b)return;const u=me();b.innerHTML=u?`${u.photoURL?`<img src="${esc(u.photoURL)}" alt="">`:"👤"} ${esc(myName())}`:"👤 Войти";if(LANG!=="ru")trNode(b)}
+function showAcct(){const u=me();$("mbox").innerHTML=`<h3>Аккаунт</h3>${u?`<p>Вы вошли как <b>${esc(myName())}</b></p><div class="row" style="justify-content:center"><button id="cSave">☁ Сохранить в облако</button><button id="cLoad" class="sec">☁ Загрузить из облака</button><button id="lgOut" class="sec">Выйти</button></div>`
+ :`<p class="mu">Вход нужен для Рынка, Топа, Арены против живых игроков и облачного сохранения.</p><div class="row" style="justify-content:center"><button id="lgG">G · Войти через Google</button><button id="lgO" class="pink">osu! · Войти через osu!</button></div>`}
+ <h3 style="margin-top:18px">Настройки</h3><div class="row" style="justify-content:center"><label>Язык <select id="langSel2">${Object.entries(LANGS).map(([k,v])=>`<option value="${k}" ${LANG===k?"selected":""}>${v}</option>`).join("")}</select></label>
+ <label><input type="checkbox" id="pSfx" ${PREF.sfx?"checked":""}> Звук</label><label><input type="checkbox" id="pMus" ${PREF.mus?"checked":""}> Музыка</label><label>Громкость <input type="range" id="pVol" min="0" max="100" value="${Math.round(PREF.vol*100)}"></label></div>
+ <div class="row" style="justify-content:center;margin-top:14px"><button class="sec" id="closeM">Закрыть</button></div>`;openModal();
+ const on=(i,f)=>{const e=$(i);if(e)e.onclick=f};on("lgG",loginGoogle);on("lgO",loginOsu);on("lgOut",()=>{logout();closeModal()});on("cSave",cloudSave);on("cLoad",cloudLoad);on("closeM",closeModal);
+ $("langSel2").onchange=e=>setLang(e.target.value);$("pSfx").onchange=e=>{PREF.sfx=e.target.checked;savePref()};$("pMus").onchange=e=>{PREF.mus=e.target.checked;savePref();PREF.mus?musicStart():musicStop()};$("pVol").oninput=e=>{PREF.vol=e.target.value/100;savePref()}}
+// ---------- ТОП ----------
+let topCache=null,topT=0;
+async function loadTop(force){if(!force&&topCache&&Date.now()-topT<60000)return topCache;const f=await fbInit();const q=f.F.query(f.F.collection(f.db,"players"),f.F.orderBy("bp","desc"),f.F.limit(100));
+ const s=await f.F.getDocs(q);topCache=s.docs.map(d=>Object.assign({id:d.id},d.data()));topT=Date.now();return topCache}
+function renderTop(){const el=$("topBody");el.innerHTML=`<tr><td colspan="6" class="mu">Загрузка…</td></tr>`;$("topMe").innerHTML=me()?`Ваш BP команды: <b>${fmt(teamBP())}</b>`:`Войдите в аккаунт, чтобы попасть в топ`;
+ loadTop().then(list=>{if(tab!=="top")return;el.innerHTML=list.length?list.map((p,i)=>{const t=(p.team||[]).slice(0,5);return`<tr class="${me()&&me().uid===p.id?"meRow":""}"><td><b>${i+1}</b></td><td>${p.photo?`<img src="${esc(p.photo)}" alt="">`:""} <b>${esc(p.name||"?")}</b></td><td><b style="color:var(--pink)">${fmt(p.bp||0)}</b></td><td class="hide-m">${fmt(p.power||0)}</td><td class="hide-m">${p.rating||1000}</td><td class="tteam">${t.map(m=>C(m.u)?`<img title="${esc(C(m.u).name)}" src="https://a.ppy.sh/${m.u}" onerror="this.style.display='none'">`:"").join("")}</td></tr>`}).join(""):`<tr><td colspan="6" class="mu">Пока пусто</td></tr>`;
+  if(me()){const i=list.findIndex(p=>p.id===me().uid);$("topMe").innerHTML=`Ваш BP команды: <b>${fmt(teamBP())}</b> · Ваше место: <b>${i>=0?i+1:"100+"}</b>`}})
+ .catch(e=>{el.innerHTML=`<tr><td colspan="6" class="mu">Онлайн недоступен (${esc(e.code||e.message||"")})</td></tr>`})}
+// ---------- РЫНОК (P2P) ----------
+const MKT_ITEMS=["books","aim","hp","acc","spd","chip","ess","tik"];
+const itemName=k=>k==="books"?"📘 Книги навыков":`${MATIC[k]} ${MATN[k]}`;
+const itemHave=k=>k==="books"?S.books:S.mat[k];
+function itemAdd(k,n){if(k==="books")S.books+=n;else S.mat[k]+=n}
+async function loadMarket(){const f=await fbInit();const s=await f.F.getDocs(f.F.query(f.F.collection(f.db,"market"),f.F.where("status","==","open"),f.F.limit(300)));
+ return s.docs.map(d=>Object.assign({id:d.id},d.data())).sort((a,b)=>(b.created||0)-(a.created||0))}
+let mktFilter="all";
+function lotHtml(l){const mine=me()&&l.seller===me().uid;let what="";
+ if(l.type==="card"){const c=C(l.uid);what=c?`<div class="lotc r-${(l.o&&l.o.rk)||c.rank}" style="${cvStyle(c)}">${img(c)}<div><b>${esc(c.name)}</b> <span style="color:${RCOL[(l.o&&l.o.rk)||c.rank]}">[${(l.o&&l.o.rk)||c.rank}]</span><div class="mu">Ур.${(l.o&&l.o.lvl)||1}${l.o&&l.o.stars?" · "+l.o.stars+"★":""} · BP ${c.bp}</div><div class="mu" style="font-size:11px">✨ ${esc(skName(c))} · 🧬 ${PAS[c.pas][0]}</div></div></div>`:"?"}
+ else what=`<div class="loti"><b>${itemName(l.item)}</b> × ${l.qty}</div>`;
+ return`<div class="lot">${what}<div class="row sp" style="margin-top:6px"><span class="mu">Продавец: ${esc(l.sellerName||"?")}</span><b style="color:var(--pink)">Ⓟ${fmt(l.price)}</b></div>
+ <div class="row" style="margin-top:6px">${mine?`<button class="sm sec" data-unlist="${l.id}">Снять</button>`:`<button class="sm" data-buy="${l.id}" ${S.gems<l.price?"disabled":""}>Купить</button>`}</div></div>`}
+let mktCache=[];
+function renderMarket(){$("mktInfo").innerHTML=me()?`Вы вошли как <b>${esc(myName())}</b> · Комиссия рынка 5%`:`Чтобы торговать, войдите в аккаунт`;$("mktSellC").disabled=$("mktSellI").disabled=!me();
+ const el=$("mktList");el.innerHTML=`<p class="mu">Загрузка…</p>`;
+ loadMarket().then(list=>{mktCache=list;if(tab!=="market")return;const L=list.filter(l=>mktFilter==="all"||(mktFilter==="mine"?me()&&l.seller===me().uid:l.type===mktFilter));el.innerHTML=L.length?L.map(lotHtml).join(""):`<p class="mu">Лотов нет</p>`})
+ .catch(e=>{el.innerHTML=`<p class="mu">Онлайн недоступен (${esc(e.code||e.message||"")})</p>`})}
+async function buyLot(id){if(!me())return toast("Чтобы торговать, войдите в аккаунт");const l=mktCache.find(x=>x.id===id);if(!l)return;if(l.seller===me().uid)return toast("Это ваш лот");if(S.gems<l.price)return toast("Недостаточно PP");
+ const{F,db}=FB;const ref=F.doc(db,"market",id);
+ try{await F.runTransaction(db,async t=>{const d=await t.get(ref);if(!d.exists()||d.data().status!=="open")throw new Error("sold");t.update(ref,{status:"sold",buyer:me().uid,buyerName:myName().slice(0,32),soldAt:Date.now()})});
+  S.gems-=l.price;if(l.type==="card"){const o=Object.assign(newO(),l.o||{});if(S.col[l.uid]){S.col[l.uid].dup++;S.mat.ess+=10}else S.col[l.uid]=o}else itemAdd(l.item,l.qty);save();sfx("lvl");toast("Покупка совершена");render()}
+ catch(e){toast(e.message==="sold"?"Лот уже продан":tr("Ошибка")+": "+(e.code||e.message));render()}}
+async function unlist(id){const l=mktCache.find(x=>x.id===id);if(!l||!me())return;try{await FB.F.deleteDoc(FB.F.doc(FB.db,"market",id));if(l.type==="card"){if(S.col[l.uid])S.col[l.uid].dup++;else S.col[l.uid]=Object.assign(newO(),l.o||{})}else itemAdd(l.item,l.qty);save();render()}catch(e){toast(tr("Ошибка")+": "+(e.code||e.message))}}
+async function listLot(data){const{F,db}=FB;await F.addDoc(F.collection(db,"market"),Object.assign({seller:me().uid,sellerName:myName().slice(0,32),status:"open",created:Date.now()},data))}
+function sellCardUI(){if(!me())return toast("Чтобы торговать, войдите в аккаунт");const owned=Object.keys(S.col).map(Number).filter(u=>!S.team.includes(u)).sort((a,b)=>curBP(b)-curBP(a)).slice(0,120);
+ $("mbox").innerHTML=`<h3>Продать карту</h3><p class="mu">Выберите карту (карты команды продать нельзя)</p><div class="grid" id="sellGrid">${owned.map(u=>card(u)).join("")||"<p class='mu'>Пусто</p>"}</div><div class="row" style="justify-content:center;margin-top:10px"><button class="sec" id="closeM">Закрыть</button></div>`;openModal();$("closeM").onclick=closeModal;
+ $("sellGrid").onclick=e=>{const c=e.target.closest(".card");if(!c)return;const u=+c.dataset.u;const price=parseInt(prompt(tr("Цена")+" (Ⓟ PP):",String(Math.max(50,curBP(u)))),10);if(!(price>0))return;
+  const o=S.col[u];if(!o||S.team.includes(u))return;delete S.col[u];save();listLot({type:"card",uid:u,o,price}).then(()=>{toast("Выставлено на рынок");closeModal()}).catch(err=>{S.col[u]=o;save();toast(tr("Ошибка")+": "+(err.code||err.message))})}}
+function sellItemUI(){if(!me())return toast("Чтобы торговать, войдите в аккаунт");$("mbox").innerHTML=`<h3>Продать предмет</h3><div class="row" style="justify-content:center"><select id="siK">${MKT_ITEMS.map(k=>`<option value="${k}">${itemName(k)} (${itemHave(k)})</option>`).join("")}</select>
+ <label>Количество <input id="siN" type="number" min="1" value="5" style="width:90px"></label><label>Цена <input id="siP" type="number" min="1" value="100" style="width:100px"></label><button id="siGo">Выставить</button><button class="sec" id="closeM">Закрыть</button></div>`;openModal();$("closeM").onclick=closeModal;
+ $("siGo").onclick=()=>{const k=$("siK").value,n=parseInt($("siN").value,10),p=parseInt($("siP").value,10);if(!(n>0&&p>0))return;if(itemHave(k)<n)return toast("Недостаточно");itemAdd(k,-n);save();listLot({type:"item",item:k,qty:n,price:p}).then(()=>{toast("Выставлено на рынок");closeModal()}).catch(err=>{itemAdd(k,n);save();toast(tr("Ошибка")+": "+(err.code||err.message))})}}
+async function claimSales(){const u=me();if(!u)return;const{F,db}=FB;const s=await F.getDocs(F.query(F.collection(db,"market"),F.where("seller","==",u.uid),F.where("status","==","sold")));let sum=0;
+ for(const d of s.docs){if(d.data().claimed)continue;try{await F.updateDoc(d.ref,{claimed:true});sum+=Math.floor(d.data().price*.95)}catch(e){}}if(sum){S.gems+=sum;save();hdr();toast(`${tr("Выручка получена")}: Ⓟ${fmt(sum)}`)}}
+// ---------- АРЕНА ----------
+function statsFor(u,m){return stats(u,Object.assign(newO(),{lvl:m.l||1,stars:m.s||0,rk:m.r||"",sk:m.k||1}))}
+function foesFromTeam(team,name){return team.filter(m=>C(m.u)).map(m=>{const c=C(m.u),s=statsFor(m.u,m);return{name:c.name,c,maxHp:s.hp,atk:s.atk,def:s.def,spd:s.spd,sk:c.sk,skl:m.k||1,rank:m.r||c.rank,lvl:m.l||1,crit:s.crit,cdm:s.cdm,skd:s.skd,eng:s.eng,regen:s.regen}})}
+function ghostTeam(seed){const myLv=Math.max(1,Math.round(S.team.reduce((a,u)=>a+S.col[u].lvl,0)/Math.max(1,S.team.length)));const ri=Math.max(0,Math.min(7,Math.round(S.team.reduce((a,u)=>a+RI(curRank(u)),0)/Math.max(1,S.team.length))));
+ const out=[];for(let i=0;i<5;i++){const r=RANKS[Math.max(0,Math.min(7,ri+((seed+i)%3)-1))],p=POOL[r];out.push({u:p[(seed*7919+i*31337)%p.length],l:Math.max(1,myLv+((seed>>i)%5)-2),s:0,r:"",k:1+((seed+i)%3)})}return out}
+let arenaOpp=null;
+async function loadArena(force){if(arenaOpp&&!force)return arenaOpp;const opp=[];
+ try{if(CFG.firebase){const list=await loadTop(force);const my=teamBP();list.filter(p=>(!me()||p.id!==me().uid)&&(p.team||[]).length).sort((a,b)=>Math.abs(a.bp-my)-Math.abs(b.bp-my)).slice(0,3).forEach(p=>opp.push({name:p.name,team:p.team,bp:p.bp,rating:p.rating||1000,live:true}))}}catch(e){}
+ const seed0=Math.floor(Math.random()*1e6);for(let i=opp.length;i<3;i++){const t=ghostTeam(seed0+i*977);opp.push({name:C(t[0].u).name+" Team",team:t,bp:t.reduce((a,m)=>a+C(m.u).bp,0),rating:S.arena.rating+((i*37)%80)-40,live:false})}
+ arenaOpp=opp;return opp}
+function renderArena(){$("arRating").textContent=S.arena.rating;$("arTix").textContent=`${S.arena.tix}/5`;$("arW").textContent=S.arena.wins;const el=$("arOpp");el.innerHTML=`<p class="mu">Загрузка…</p>`;
+ loadArena().then(opp=>{if(tab!=="arena")return;el.innerHTML=opp.map((o,i)=>`<div class="lot"><div class="row sp"><b>${esc(o.name)}</b><span class="mu">${o.live?"🌐 онлайн-игрок":"🤖 тренировочный соперник"}</span></div><div class="tteam" style="margin:8px 0">${o.team.map(m=>C(m.u)?`<img title="${esc(C(m.u).name)}" src="https://a.ppy.sh/${m.u}" onerror="this.style.display='none'">`:"").join("")}</div>
+  <div class="row sp"><span class="mu">BP ${fmt(o.bp)} · Рейтинг ${o.rating}</span><button class="sm" data-arena="${i}" ${S.arena.tix<1||!S.team.length?"disabled":""}>⚔ Вызвать</button></div></div>`).join("")})}
+function arenaFight(i){const o=arenaOpp&&arenaOpp[i];if(!o)return;checkDay();if(S.arena.tix<1)return toast("Нет билетов арены — приходите завтра");
+ if(startBattle(`Арена — ${o.name}`,foesFromTeam(o.team),win=>{prog("arena");if(win){const d=Math.max(8,Math.round(20+(o.rating-S.arena.rating)/20));S.arena.rating+=d;S.arena.wins++;arenaOpp=null;return giveDrop({gems:40*evm("arena"),gold:600,xp:40},1)+` · ${tr("Рейтинг")} +${d}`}
+  S.arena.rating=Math.max(0,S.arena.rating-10);return`${tr("Рейтинг")} −10`},{n:"Арена",c:"#ff1f3d",g:"⚔",mod:""}))S.arena.tix--}
+
 // ---------- ГОТОВНОСТЬ ПРОЕКТА ----------
 const DEV=[["Гача с анимациями редкостей",1],["Коллекция и индекс игроков",1],[`База игроков osu! (${CH.length.toLocaleString("ru")})`,1],["Аватарки с osu.ppy.sh",1],["Навыки и пассивки",1],["Бой с анимациями атак и навыков",1],["Башня 150 этажей, 15 зон",1],["Данжи и локации",1],["Прокачка: уровни, тренировка, моды, ранги",1],["Задания, достижения, награды за уровни",1],["Сохранение / экспорт / импорт",1],["Адаптация под телефон",.7],["Звуки и музыка",0],["Сменные баннеры и события",0],["PvP-арена",0],["Баланс сложности",.5]];
 function devPct(){return Math.round(DEV.reduce((a,x)=>a+x[1],0)/DEV.length*100)}
@@ -505,23 +744,23 @@ function playPct(){const p=playParts();return Math.floor(p.reduce((a,x)=>a+Math.
 function achVal(k){const o=Object.values(S.col);switch(k){case"floor":return S.floor-1;case"owned":return o.length;case"pulls":return S.pulls;case"alv":return S.alv;case"ex":return Object.keys(S.col).filter(u=>C(u).rank==="EX").length;
  case"maxsk":return o.filter(x=>x.sk>=10).length;case"star5":return o.filter(x=>x.stars>=5).length;case"promo":return S.promos;case"modmax":return o.filter(x=>Object.values(x.md).some(v=>v>=10)).length;
  case"dclear":return DUNG.filter((_,i)=>(S.dg["d"+i]||0)>=15).length;default:return LOCS.filter((_,i)=>(S.loc["l"+i]||0)>=10).length}}
-const TABS=[["home","Главная"],["gacha","Гача"],["col","Коллекция"],["index","Индекс"],["team","Команда"],["dung","Данжи"],["farm","Локации"],["tower","Башня"],["up","Академия"],["quest","Задания"],["set","⚙"]];
+const TABS=[["home","Главная"],["gacha","Гача"],["col","Коллекция"],["index","Индекс"],["team","Команда"],["dung","Данжи"],["farm","Локации"],["tower","Башня"],["arena","Арена"],["market","Рынок"],["top","Топ"],["up","Академия"],["quest","Задания"],["set","⚙"]];
 let tab="home",colPage=0,ixPage=0;const PER=60;
 $("nav").innerHTML=TABS.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join("");$("nav").onclick=e=>{const t=e.target.dataset.t;if(t){tab=t;render();scrollTo(0,0)}};
 $("ixR").innerHTML+=RANKS.slice().reverse().map(r=>`<option>${r}</option>`).join("");
 function pager(id,page,total,set){const pages=Math.max(1,Math.ceil(total/PER));$(id).innerHTML=pages>1?`<button class="sm sec" data-pg="${id}" data-v="0" ${page<=0?"disabled":""}>«</button><button class="sm sec" data-pg="${id}" data-v="${page-1}" ${page<=0?"disabled":""}>‹</button><span>${page+1} / ${pages}</span><button class="sm sec" data-pg="${id}" data-v="${page+1}" ${page>=pages-1?"disabled":""}>›</button><button class="sm sec" data-pg="${id}" data-v="${pages-1}" ${page>=pages-1?"disabled":""}>»</button>`:""}
-function qRow(t,v,n,g,c,attr){return`<div class="quest ${v>=n?"ok":""}"><div>${t}<div class="mu">${fmt(Math.min(v,n))}/${fmt(n)} · 💎${g}</div><div class="pbar"><i style="width:${Math.min(100,v/n*100)}%"></i></div></div><button class="sm" ${attr} ${c||v<n?"disabled":""}>${c?"Получено":"Забрать"}</button></div>`}
+function qRow(t,v,n,g,c,attr){return`<div class="quest ${v>=n?"ok":""}"><div>${t}<div class="mu">${fmt(Math.min(v,n))}/${fmt(n)} · Ⓟ${g}</div><div class="pbar"><i style="width:${Math.min(100,v/n*100)}%"></i></div></div><button class="sm" ${attr} ${c||v<n?"disabled":""}>${c?"Получено":"Забрать"}</button></div>`}
 const matsHtml=()=>Object.keys(MATIC).map(k=>`<span title="${MATN[k]}">${MATIC[k]} ${MATN[k]}: <b>${fmt(S.mat[k])}</b></span>`).join("");
 function hdr(){const hp=$("hdrPct");if(hp)hp.textContent=playPct()+"%";checkDay();tickSta();$("gems").textContent=fmt(S.gems);$("gold").textContent=fmt(S.gold);$("books").textContent=S.books;$("keys").textContent=S.keys;$("sta").textContent=`${S.sta}/${maxSta()}`;$("alv").textContent=S.alv;$("axp").style.width=Math.min(100,S.axp/xpNeed(S.alv)*100)+"%";$("pw").textContent=fmt(teamPower())}
 function render(){hdr();document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===tab));document.querySelectorAll("main section").forEach(s=>s.classList.toggle("on",s.id==="s-"+tab));
  const tp=teamPower(),owned=Object.keys(S.col).map(Number);
- if(tab==="home"){$("dailyBtn").disabled=S.daily===today();$("dailyInfo").textContent=S.daily===today()?"Уже получено сегодня":"+💎300 🪙3000 📘2 ✦10";$("refill").disabled=S.gems<50||S.sta>=maxSta();
+ if(tab==="home"){$("dailyBtn").disabled=S.daily===today();$("dailyInfo").textContent=S.daily===today()?"Уже получено сегодня":"+Ⓟ300 🪙3000 📘2 ✦10";$("refill").disabled=S.gems<50||S.sta>=maxSta();
   $("homeTeam").innerHTML=[0,1,2,3,4].map(i=>S.team[i]!==undefined?card(S.team[i]):`<div class="slot">Пусто</div>`).join("");$("pw2").textContent=fmt(tp);$("syn").textContent="x"+synergy();$("inv").innerHTML=matsHtml()+`<span>📘 Книги: <b>${S.books}</b></span><span>🗝 Ключи: <b>${S.keys}</b></span>`;
-  const dp=devPct(),pl=playPct();$("devPct").textContent=dp+"%";$("devBar").style.width=dp+"%";$("plPct").textContent=pl+"%";$("plBar").style.width=pl+"%";
-  $("devList").innerHTML=DEV.map(([n,v])=>`<div class="${v<1?"no":""}"><span>${v>=1?"✅":v>0?"🟡":"⬜"} ${n}</span><b>${Math.round(v*100)}%</b></div>`).join("");
-  $("plList").innerHTML=playParts().map(([n,v,t])=>`<div><span>${n} <span class="mu">${t}</span></span><b>${Math.floor(Math.min(1,v)*100)}%</b></div>`).join("");
+  const E=ev();$("evBox").innerHTML=`<div class="row sp"><div><div class="mu" style="font-size:11px;text-transform:uppercase;letter-spacing:1px">Событие дня · ${untilUTC(1)} до конца</div><b style="font-size:20px;font-style:italic">${E.n}</b> — ${E.d}</div><div class="mu">Баннер недели: <b style="color:var(--pink)">${bannerTitle(BANNERS[2])}</b> · ${bannerTitle(BANNERS[3])}</div></div>`;
   $("stats").innerHTML=`Игроков в игре: ${CH.length.toLocaleString("ru")} · Открыто: ${owned.length} · Круток: ${S.pulls} · Боёв: ${S.fights} · Повышений ранга: ${S.promos} · Высший этаж: ${S.floor-1}/${MAXF}`}
- if(tab==="gacha"){$("pity").textContent=S.pity;$("pull1").disabled=S.gems<100;$("pull10").disabled=S.gems<900;$("pullG").disabled=S.gold<5000;$("lastPulls").innerHTML=S.last.length?S.last.map(u=>card(u)).join(""):`<p class="mu">Пока пусто</p>`}
+ if(tab==="gacha"){const B=BANNERS.find(b=>b.id===S.banner)||BANNERS[0];$("bnTabs").innerHTML=BANNERS.map(b=>`<button class="sm ${b.id===B.id?"on":""}" data-bn="${b.id}">${bannerTitle(b)}</button>`).join("");$("bnName").textContent=bannerTitle(B);
+  $("bnDesc").innerHTML=`${B.d}${B.id!=="std"?` · <span class="mu">Смена через ${untilUTC(7-((new Date().getUTCDay()+6)%7))}</span>`:""}`;$("bnFeat").innerHTML=B.id==="feat"?`<div class="mu" style="margin-top:6px">Игроки недели:</div><div class="feat">${[featured().s,...featured().a].map(u=>card(u)).join("")}</div>`:"";
+  $("pity").textContent=S.pity;$("pull1").disabled=S.gems<100;$("pull10").disabled=S.gems<900;$("pullG").disabled=S.gold<5000;$("lastPulls").innerHTML=S.last.length?S.last.map(u=>card(u)).join(""):`<p class="mu">Пока пусто</p>`}
  if(tab==="col"){const so=$("sort").value,q=$("colQ").value.toLowerCase();const pw={};const ids=owned.filter(u=>!q||C(u).name.toLowerCase().includes(q));if(so==="power")ids.forEach(u=>pw[u]=stats(u).power);
   ids.sort((a,b)=>so==="name"?C(a).name.localeCompare(C(b).name):so==="rank"?RI(curRank(b))-RI(curRank(a))||curBP(b)-curBP(a):so==="bp"?curBP(b)-curBP(a):so==="lvl"?S.col[b].lvl-S.col[a].lvl:pw[b]-pw[a]);
   colPage=Math.min(colPage,Math.max(0,Math.ceil(ids.length/PER)-1));$("colGrid").innerHTML=ids.length?ids.slice(colPage*PER,colPage*PER+PER).map(u=>card(u)).join(""):`<p class="mu">Пусто — сделайте крутку в Гаче!</p>`;$("colInfo").textContent=`${owned.length} / ${CH.length.toLocaleString("ru")}`;pager("colPg",colPage,ids.length)}
@@ -534,15 +773,16 @@ function render(){hdr();document.querySelectorAll("nav button").forEach(b=>b.cla
  if(tab==="dung"){$("keyInfo").textContent=`${S.keys} шт., +${maxKeys()} в день`;$("dmats").innerHTML=matsHtml();
   $("dungs").innerHTML=DUNG.map((D,i)=>{const best=S.dg["d"+i]||0;const opts=Array.from({length:Math.min(15,best+1)},(_,k)=>`<option value="${k+1}" ${k===Math.min(14,best)?"selected":""}>Уровень ${k+1}</option>`).join("");
    return`<div class="lc" style="--lc:${D.c}"><b>${D.ic} ${D.n}</b><div class="mu">${D.m} — ${D.d}<br>Пройдено ${best}/15 · 🗝1</div><div class="row" style="margin-top:8px"><select id="dg${i}">${opts}</select><button data-dg="${i}" ${S.keys<1||!S.team.length?"disabled":""}>Войти</button></div></div>`}).join("")}
- if(tab==="farm"){$("locs").innerHTML=LOCS.map((L,i)=>{const lk=S.alv<L.lv,best=S.loc["l"+i]||0;const opts=Array.from({length:Math.min(10,best+1)},(_,k)=>`<option value="${k+1}" ${k===Math.min(9,best)?"selected":""}>Сложность ${k+1}</option>`).join("");
+ if(tab==="farm"){$("locs").innerHTML=LOCS.map((L,i)=>[L,i]).sort((a,b)=>a[0].lv-b[0].lv).map(([L,i])=>{const lk=S.alv<L.lv,best=S.loc["l"+i]||0;const opts=Array.from({length:Math.min(10,best+1)},(_,k)=>`<option value="${k+1}" ${k===Math.min(9,best)?"selected":""}>Сложность ${k+1}</option>`).join("");
   return`<div class="lc ${lk?"lock":""}" style="--lc:${L.c}"><b>${L.n}</b><div class="mu">${L.d} · ⚡${L.cost} · ${lk?"🔒 уровень "+L.lv:"пройдено "+best+"/10"}</div><div class="row" style="margin-top:8px"><select id="st${i}" ${lk?"disabled":""}>${opts}</select><button data-loc="${i}" ${lk||S.sta<L.cost||!S.team.length?"disabled":""}>В бой</button></div></div>`}).join("")}
  if(tab==="tower"){const f=S.floor;if(f>MAXF){$("tTitle").textContent="Башня покорена!";$("tEnemy").textContent="Все 150 этажей пройдены.";$("fight").disabled=true}
   else{const boss=f%10===0,s=towerScale(f);$("tTitle").textContent=`Этаж ${f}${boss?" · БОСС":""}`;$("tEnemy").textContent=`Рекомендуемая сила ≈ ${fmt(s*(boss?1300:1000))} · ваша ${fmt(tp)}`;$("fight").disabled=!S.team.length}
   $("sweep").disabled=f<=1||!S.team.length;const z=zoneOf(Math.min(f,MAXF));$("zoneBox").innerHTML=`<div class="zone" style="--zc:${z.c}"><div class="mu" style="font-size:11px;text-transform:uppercase">Зона ${ZONES.indexOf(z)+1}/15 · этажи ${ZONES.indexOf(z)*10+1}–${ZONES.indexOf(z)*10+10}</div><b>${z.g} ${z.n}</b><div>${z.mod?"Особенность: "+z.d:z.d}</div></div>`;$("s-tower").style.setProperty("--zc",z.c);
   $("floors").innerHTML=Array.from({length:MAXF},(_,i)=>i+1).map(n=>`<div class="fl ${n<f?"done":""} ${n===f?"cur":""} ${n%10===0?"boss":""}" style="--zc:${zoneOf(n).c}" title="${zoneOf(n).n}">${n}</div>`).join("");
   $("zoneList").innerHTML=ZONES.map((z,i)=>`<div style="--zc:${z.c};border-left:4px solid ${z.c};padding:6px 8px;background:var(--p2);${S.floor>i*10+10?"":"opacity:"+(S.floor>i*10?1:.45)}"><b style="color:${z.c}">${z.g} ${i*10+1}–${i*10+10}: ${z.n}</b><div class="mu" style="font-size:11px">${z.d}</div></div>`).join("")}
- if(tab==="up"){$("acad").innerHTML=ACAD.map(([k,n,d,mx,base])=>{const l=acad(k),g=acCost(k).g,gm=acCost(k).gm;return`<div><b>${n}</b> <span class="mu">${l}/${mx}</span><div class="mu" style="font-size:12px">${d}</div><button class="sm" data-ac="${k}" ${l>=mx||S.gold<g||S.gems<gm?"disabled":""}>🪙${fmt(g)}${gm?" 💎"+gm:""}</button></div>`}).join("");
+ if(tab==="up"){$("acad").innerHTML=ACAD.map(([k,n,d,mx,base])=>{const l=acad(k),g=acCost(k).g,gm=acCost(k).gm;return`<div><b>${n}</b> <span class="mu">${l}/${mx}</span><div class="mu" style="font-size:12px">${d}</div><button class="sm" data-ac="${k}" ${l>=mx||S.gold<g||S.gems<gm?"disabled":""}>🪙${fmt(g)}${gm?" Ⓟ"+gm:""}</button></div>`}).join("");
   $("ex1").disabled=S.gold<3000;$("ex3").disabled=S.gems<50;$("ex4").disabled=S.gems<100;$("ex5").disabled=S.mat.ess<30}
+ if(tab==="top")renderTop();if(tab==="market")renderMarket();if(tab==="arena")renderArena();
  if(tab==="quest"){$("qReset").textContent="(сброс в 00:00 UTC; еженедельные — по понедельникам)";
   $("dq").innerHTML=DQ.map(([k,t,n,g])=>qRow(t,S.dq[k]||0,n,g,S.dqC[k],`data-dq="${k}"`)).join("");$("wq").innerHTML=WQ.map(([k,t,n,g])=>qRow(t,S.wq[k]||0,n,g,S.wqC[k],`data-wq="${k}"`)).join("");
   $("aq").innerHTML=ACH.map(([k,n,t,g],i)=>qRow(t,achVal(k),n,g,S.ach[i],`data-ach="${i}"`)).join("");
@@ -555,19 +795,21 @@ function claimAll(){let g=0,cnt=0,extra=[];DQ.forEach(q=>{if(!S.dqC[q[0]]&&(S.dq
  ACH.forEach((q,i)=>{if(!S.ach[i]&&achVal(q[0])>=q[1]){S.ach[i]=1;g+=q[3];cnt++}});for(let l=2;l<=Math.min(S.alv,LVMAX);l++)if(!S.lvC[l]){claimLv(l);cnt++}
  S.gems+=g;save();render();toast(cnt?`Получено наград: ${cnt}`:"Нечего забирать")}
 function acCost(k){const a=ACAD.find(x=>x[0]===k),l=acad(k);return{g:Math.round(1500*Math.pow(1.4,l)),gm:l>=5?a[4]*10*(l-4):0}}
-document.addEventListener("click",e=>{const t=e.target;if(t.closest("#arena"))return;const c=t.closest(".card");if(c&&!t.closest("#mbox")){const u=+c.dataset.u;if(tab==="team"&&c.closest("#teamPick,#teamSlots"))toggleTeam(u);else{charTab="main";showChar(u)}return}
+document.addEventListener("click",e=>{const t=e.target;if(t.closest("button"))sfx("click");if(t.closest("#arena"))return;const c=t.closest(".card");if(c&&!t.closest("#mbox")){const u=+c.dataset.u;if(tab==="team"&&c.closest("#teamPick,#teamSlots"))toggleTeam(u);else{charTab="main";showChar(u)}return}
  const ix=t.closest("[data-ix]");if(ix){charTab="main";return showChar(+ix.dataset.ix)}const d=t.dataset;
+ if(d.bn){S.banner=d.bn;save();render();return}if(d.buy){buyLot(d.buy);return}if(d.unlist){unlist(d.unlist);return}if(d.arena!==undefined){arenaFight(+d.arena);return}
+ if(d.mf){mktFilter=d.mf;document.querySelectorAll("#mktTabs button").forEach(b=>b.classList.toggle("on",b.dataset.mf===d.mf));renderMarket();return}
  if(d.pg){const v=+d.v;if(d.pg==="colPg")colPage=v;else ixPage=v;render();return}
- if(d.dq){const q=DQ.find(x=>x[0]===d.dq);if(!S.dqC[d.dq]&&(S.dq[d.dq]||0)>=q[2]){S.dqC[d.dq]=1;S.gems+=q[3];save();render();toast("+💎"+q[3])}}
- if(d.wq){const q=WQ.find(x=>x[0]===d.wq);if(!S.wqC[d.wq]&&(S.wq[d.wq]||0)>=q[2]){S.wqC[d.wq]=1;S.gems+=q[3];save();render();toast("+💎"+q[3])}}
+ if(d.dq){const q=DQ.find(x=>x[0]===d.dq);if(!S.dqC[d.dq]&&(S.dq[d.dq]||0)>=q[2]){S.dqC[d.dq]=1;S.gems+=q[3];save();render();toast("+Ⓟ"+q[3])}}
+ if(d.wq){const q=WQ.find(x=>x[0]===d.wq);if(!S.wqC[d.wq]&&(S.wq[d.wq]||0)>=q[2]){S.wqC[d.wq]=1;S.gems+=q[3];save();render();toast("+Ⓟ"+q[3])}}
  if(d.lv){const r=claimLv(+d.lv);if(r){save();render();toast(r)}}
- if(d.ach!==undefined){const q=ACH[d.ach];if(!S.ach[d.ach]&&achVal(q[0])>=q[1]){S.ach[d.ach]=1;S.gems+=q[3];save();render();toast("+💎"+q[3])}}
+ if(d.ach!==undefined){const q=ACH[d.ach];if(!S.ach[d.ach]&&achVal(q[0])>=q[1]){S.ach[d.ach]=1;S.gems+=q[3];save();render();toast("+Ⓟ"+q[3])}}
  if(d.loc!==undefined){const i=+d.loc;locFight(i,+$("st"+i).value||1)}
  if(d.dg!==undefined){const i=+d.dg;dungFight(i,+$("dg"+i).value||1)}
  if(d.ac){const a=ACAD.find(x=>x[0]===d.ac),l=acad(d.ac),{g,gm}=acCost(d.ac);if(l<a[3]&&S.gold>=g&&S.gems>=gm){S.gold-=g;S.gems-=gm;S.acad[d.ac]=l+1;if(d.ac==="key")S.keys++;save();render();toast(a[1]+" улучшено!")}}});
 $("claimAll").onclick=claimAll;$("pull1").onclick=()=>gacha(1,"gems");$("pull10").onclick=()=>gacha(10,"gems");$("pullG").onclick=()=>gacha(1,"gold");
 $("sort").onchange=()=>{colPage=0;render()};$("colQ").oninput=()=>{colPage=0;render()};let ixT=0;["ixQ","ixR","ixM","ixC","ixO"].forEach(i=>$(i).oninput=()=>{clearTimeout(ixT);ixT=setTimeout(()=>{ixPage=0;render()},250)});
-$("dailyBtn").onclick=()=>{if(S.daily===today())return;S.daily=today();S.gems+=300;S.gold+=3000;S.books+=2;S.mat.ess+=10;save();render();toast("+💎300 🪙3000 📘2 ✦10")};
+$("dailyBtn").onclick=()=>{if(S.daily===today())return;S.daily=today();S.gems+=300;S.gold+=3000;S.books+=2;S.mat.ess+=10;save();render();toast("+Ⓟ300 🪙3000 📘2 ✦10")};
 $("refill").onclick=()=>{if(S.gems<50||S.sta>=maxSta())return;S.gems-=50;S.sta=maxSta();save();render()};
 $("autoTeam").onclick=()=>{const pw={};Object.keys(S.col).forEach(u=>pw[u]=stats(u).power);S.team=Object.keys(S.col).sort((a,b)=>pw[b]-pw[a]).slice(0,5).map(Number);save();render()};$("clearTeam").onclick=()=>{S.team=[];save();render()};
 $("fight").onclick=()=>towerFight(S.floor,false);$("sweep").onclick=()=>towerFight(Math.min(S.floor-1,MAXF),true);
@@ -575,10 +817,14 @@ $("ex1").onclick=()=>{if(S.gold>=3000){S.gold-=3000;S.books++;save();render()}};
 $("ex4").onclick=()=>{if(S.gems>=100){S.gems-=100;S.keys+=2;save();render()}};$("ex5").onclick=()=>{if(S.mat.ess>=30){S.mat.ess-=30;S.mat.tik++;save();render()}};
 $("exp").onclick=()=>{$("saveTxt").value=btoa(unescape(encodeURIComponent(JSON.stringify(S))));toast("Скопируйте строку")};
 $("imp").onclick=()=>{try{const d=JSON.parse(decodeURIComponent(escape(atob($("saveTxt").value.trim()))));if(typeof d!=="object"||!d||!d.col)throw 0;S=Object.assign(fresh(),d);sanitize();save();render();toast("Импортировано")}catch(e){toast("Неверная строка сохранения")}};
-$("reset").onclick=()=>{if(confirm("Удалить весь прогресс?")){S=fresh();save();render();toast("Прогресс сброшен")}};
+$("reset").onclick=()=>{if(confirm(tr("Удалить весь прогресс?"))){S=fresh();save();render();toast("Прогресс сброшен")}};
 window.addEventListener("error",e=>toast("Ошибка: "+e.message));
 setInterval(()=>{if(!inBattle){const s=S.sta;tickSta();if(s!==S.sta){save();hdr()}}},20000);
-load();render();save();
+$("acctBtn").onclick=showAcct;$("openAcct").onclick=showAcct;$("langSel").onchange=e=>setLang(e.target.value);
+$("mktSellC").onclick=sellCardUI;$("mktSellI").onclick=sellItemUI;$("mktRef").onclick=renderMarket;$("topRef").onclick=()=>{topCache=null;renderTop()};$("arRef").onclick=()=>{arenaOpp=null;renderArena()};
+load();render();save();renderAcct();
+i18nObs.observe(document.body,{childList:true,subtree:true,characterData:true});setLang(PREF.lang);
+if(CFG.firebase&&isWeb())fbInit().then(()=>osuReturn()).catch(e=>console.warn("firebase",e));
 </script>
 </body>
 </html>

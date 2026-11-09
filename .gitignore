@@ -3,3 +3,5 @@ data/ck/
 node_modules/
 *.png
 __pycache__/
+public/
+.firebase/

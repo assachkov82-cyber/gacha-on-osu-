@@ -1,0 +1,20 @@
+# Публикация игры на Firebase Hosting (https://gacha-on-osu.web.app) при каждом пуше в main.
+# Нужен секрет репозитория FIREBASE_SERVICE_ACCOUNT (JSON ключ сервисного аккаунта Firebase).
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare public folder
+        run: mkdir -p public && cp index.html public/index.html
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: gacha-on-osu

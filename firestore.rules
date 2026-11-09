@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    // публичные профили игроков (топ, арена)
+    match /players/{uid} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid;
+      // облачное сохранение — только владелец
+      match /private/{doc} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+    // P2P-рынок
+    match /market/{id} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.seller == request.auth.uid
+        && request.resource.data.status == 'open'
+        && request.resource.data.price is int && request.resource.data.price > 0;
+      allow update: if request.auth != null && (
+        (resource.data.status == 'open' && request.resource.data.status == 'sold'
+          && request.resource.data.buyer == request.auth.uid
+          && request.auth.uid != resource.data.seller
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','buyer','buyerName','soldAt']))
+        || (resource.data.seller == request.auth.uid && resource.data.status == 'sold'
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimed'])));
+      allow delete: if request.auth != null
+        && resource.data.seller == request.auth.uid && resource.data.status == 'open';
+    }
+  }
+}
