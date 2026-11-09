@@ -54,7 +54,7 @@
 ## Логотип
 - `assets/` (logo.png оригинал без фона, logo-512.webp вшит base64 в CSS `.logo`, favicon-64.png вшит, icon-180.png и og.png отдаются с Vercel). Где: favicon, шапка, главная (hero), заставка загрузки `#splash`, окно аккаунта, og-превью ссылки.
 - Значки: PP — `assets/pp-64.webp` (класс `.ppi`); остальные 20 — векторные SVG из `tools/icons.py` → `assets/icons/*.svg`, вшиваются в CSS `.ic-*` при сборке. В коде остаются символы (Ⓟ 🪙 ⚡ 🗝 📘 Ⓑ ✦ 🎫 🔴 🤍 ⚪ 🌀 🧩 ⚔ ❤ 🛡 💨 ✨ 🧬 🎁 🏯), `ppify()` + MutationObserver заменяют их на значки (карта `ICMAP`). ✦ = только эссенция (у EX-навыков ★).
-- Звуки: 18 CC0-эффектов (Kenney + RPG Sound Pack, OpenGameArt) в `assets/sounds/*.mp3` (лицензия — assets/sounds/LICENSE.txt), вшиваются base64 в `SND_B64`, декодируются при первом клике; `sfx()` сначала играет файл, иначе синтез. Музыка — синтез WebAudio.
+- Звуки: 18 **собственных** эффектов в стиле 16-битных консолей (FM-синтез, 32 кГц, 16-бит PCM, FLAC без потерь), генератор `tools/sfx16.py` → `assets/sounds/*.flac`, вшиваются base64 в `SND_B64`, декодируются при первом клике; `sfx()` играет файл, при ошибке — синтез WebAudio. Музыка — синтез WebAudio.
 - Повтор боя: `lastFight`/`nextFight` задаются в towerFight/locFight/dungFight/arenaFightO; кнопки «Повторить бой» / «Следующий этаж» на экране итогов.
 - Профили игроков: `showPlayer(id)` (Топ, Рынок — продавец, Арена — живой соперник); поле `osu` в `players/{uid}` (osu-вход → id, Google → ник/ID, который игрок вводит в окне аккаунта, `S.osuLink`), кнопка «Профиль на osu.ppy.sh».
 ## Прочее (v6)

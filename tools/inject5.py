@@ -17,6 +17,6 @@ import urllib.parse
 IC=os.path.join(R,'assets','icons');css=''.join('.ic-%s{background-image:url("data:image/svg+xml,%s")}'%(f[:-4],urllib.parse.quote(open(os.path.join(IC,f)).read(),safe=' =:/"<>#'.replace('"','').replace('#',''))) for f in sorted(os.listdir(IC)) if f.endswith('.svg'))
 h=h.replace('/*ICONCSS*/',css)
 SD=os.path.join(R,'assets','sounds');import json as _j
-h=h.replace('/*SOUNDS*/',_j.dumps({f[:-4]:base64.b64encode(open(os.path.join(SD,f),'rb').read()).decode() for f in sorted(os.listdir(SD)) if f.endswith('.mp3')}))
+h=h.replace('/*SOUNDS*/',_j.dumps({f[:-4]:base64.b64encode(open(os.path.join(SD,f),'rb').read()).decode() for f in sorted(os.listdir(SD)) if f.endswith('.flac')}))
 open(os.path.join(R,'index.html'),'w',encoding='utf-8').write(h)
 print('index.html собран:',len(h)//1024,'КБ')
