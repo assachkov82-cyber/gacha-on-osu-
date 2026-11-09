@@ -11,7 +11,7 @@
  *   FB_CLIENT_EMAIL     — client_email из JSON сервисного аккаунта Firebase
  *   FB_PRIVATE_KEY      — private_key из того же JSON (вместе с BEGIN/END)
  */
-const ALLOWED = ["https://gacha-on-osu.web.app", "https://gacha-on-osu.firebaseapp.com"];
+const ALLOWED = ["https://gacha-on-osu.vercel.app", "https://gacha-on-osu.web.app", "https://gacha-on-osu.firebaseapp.com"];
 
 export default {
   async fetch(req, env) {

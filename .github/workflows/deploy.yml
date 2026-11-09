@@ -1,9 +1,7 @@
-# Публикация игры на Firebase Hosting (https://gacha-on-osu.web.app) при каждом пуше в main.
+# Резервная публикация на Firebase Hosting (запуск вручную). Основной сайт — https://gacha-on-osu.vercel.app (Vercel, автодеплой из main).
 # Нужен секрет репозитория FIREBASE_SERVICE_ACCOUNT (JSON ключ сервисного аккаунта Firebase).
 name: Deploy to Firebase Hosting
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 jobs:
   deploy:
