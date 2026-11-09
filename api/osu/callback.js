@@ -16,9 +16,21 @@ const ALLOWED = ["https://gacha-on-osu.vercel.app", "https://gacha-on-osu.web.ap
 
 const b64url = (buf) => Buffer.from(buf).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 
+// Принимает ключ в любом виде: с кавычками или без, с \n или настоящими переносами,
+// одной строкой без переносов, весь JSON сервисного аккаунта целиком или base64 от него.
+function readKey() {
+  let raw = String(process.env.FB_PRIVATE_KEY || "").trim();
+  let email = String(process.env.FB_CLIENT_EMAIL || "").trim().replace(/^["']|["'],?$/g, "");
+  const tryJson = (t) => { try { const j = JSON.parse(t); if (j && j.private_key) { raw = j.private_key; if (j.client_email) email = j.client_email; return true; } } catch (e) {} return false; };
+  if (!tryJson(raw) && !/BEGIN/.test(raw)) { try { tryJson(Buffer.from(raw, "base64").toString("utf8")); } catch (e) {} }
+  raw = raw.replace(/^"private_key"\s*:\s*/, "").replace(/^["']|["'],?$/g, "").replace(/\\n/g, "\n").replace(/\r/g, "");
+  const body = raw.replace(/-----BEGIN [^-]+-----/, "").replace(/-----END [^-]+-----/, "").replace(/[^A-Za-z0-9+/=]/g, "");
+  const pem = "-----BEGIN PRIVATE KEY-----\n" + body.match(/.{1,64}/g).join("\n") + "\n-----END PRIVATE KEY-----\n";
+  return { email, key: crypto.createPrivateKey({ key: pem, format: "pem" }) };
+}
+
 function firebaseCustomToken(uid, claims) {
-  const email = process.env.FB_CLIENT_EMAIL;
-  const key = (process.env.FB_PRIVATE_KEY || "").replace(/\\n/g, "\n");
+  const { email, key } = readKey();
   const now = Math.floor(Date.now() / 1000);
   const header = { alg: "RS256", typ: "JWT" };
   const payload = {
