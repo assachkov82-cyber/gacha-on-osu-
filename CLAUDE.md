@@ -56,3 +56,8 @@
 2. `python3 tools/inject5.py` → новый `index.html`.
 3. Прогнать `node tests/t5.js` и `node tests/t7.js $PWD/index.html` — ожидать `errors []`.
 4. Приложить `index.html` пользователю и закоммитить.
+
+## Публикация (GitHub Pages)
+- Репозиторий: `assachkov82-cyber/gacha-on-osu-`. Сайт: https://assachkov82-cyber.github.io/gacha-on-osu-/
+- Деплой — workflow `.github/workflows/pages.yml` (копирует `index.html` в `_site`), запускается при push в `main` и рабочую ветку.
+- В Settings → Pages источник должен быть «GitHub Actions».
