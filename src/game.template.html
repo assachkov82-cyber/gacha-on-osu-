@@ -137,6 +137,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;b
  .grid{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}.mbox{padding:14px}.cban{margin:-14px -14px 0}.panel{padding:12px}main{padding:0 10px 30px}.big{font-size:22px}.up{grid-template-columns:1fr 1fr}}
 
 .logo{background:url("data:image/webp;base64,/*LOGO*/") center/contain no-repeat}
+.ppi{display:inline-block;width:1.25em;height:1.25em;vertical-align:-.3em;margin:0 .08em;background:url("data:image/webp;base64,/*PPICON*/") center/contain no-repeat;filter:drop-shadow(0 0 3px #ff5fa288)}
+.res .ppi{width:1.5em;height:1.5em;vertical-align:-.42em}#toast .ppi{width:1.4em;height:1.4em}
 .hlogo{width:54px;height:56px;flex:0 0 auto;filter:drop-shadow(0 0 8px #ff1f3d88)}header>div:first-child{display:flex;align-items:center;gap:10px}
 .hero{display:flex;gap:20px;align-items:center}.hero .logo{width:220px;height:230px;flex:0 0 auto;filter:drop-shadow(0 0 24px #ff1f3d66);animation:lgf 4s ease-in-out infinite}@keyframes lgf{50%{transform:translateY(-6px)}}
 #splash{position:fixed;inset:0;z-index:100;background:#070707;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .4s}#splash .logo{width:min(300px,70vw);height:min(314px,73vw);animation:lgp 1.4s ease-in-out infinite}
@@ -649,6 +651,13 @@ const i18nObs=new MutationObserver(ms=>{if(i18nBusy||LANG==="ru")return;for(cons
  if(!i18nT)i18nT=requestAnimationFrame(()=>{i18nT=0;const q=[...i18nQ];i18nQ.clear();q.forEach(x=>{if(x&&x.isConnected)trNode(x)})})});
 function setLang(l){if(!LANGS[l])l="ru";const was=LANG;LANG=l;document.documentElement.lang=l;PREF.lang=l;savePref();if(was!=="ru"&&l==="ru"){untrAll()}if(l!=="ru"){untrAll();trNode(document.body)}const s=$("langSel");if(s)s.value=l}
 
+// ---------- ЗНАЧОК ВАЛЮТЫ PP ----------
+const PPCH="Ⓟ",PPSKIP={OPTION:1,TEXTAREA:1,SCRIPT:1,STYLE:1,TITLE:1,SELECT:1};
+function ppify(root){if(!root)return;if(root.nodeType===3){if(root.nodeValue.indexOf(PPCH)>=0&&root.parentNode&&!PPSKIP[root.parentNode.nodeName])ppSplit(root);return}
+ if(root.nodeType!==1||PPSKIP[root.nodeName])return;if((root.textContent||"").indexOf(PPCH)<0)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const L=[];let n;while(n=w.nextNode())if(n.nodeValue.indexOf(PPCH)>=0&&!PPSKIP[n.parentNode.nodeName])L.push(n);L.forEach(ppSplit)}
+function ppSplit(n){const parts=n.nodeValue.split(PPCH),f=document.createDocumentFragment();parts.forEach((t,i)=>{if(i){const s=document.createElement("i");s.className="ppi";s.title="PP";s.setAttribute("aria-label","PP");f.appendChild(s)}if(t)f.appendChild(document.createTextNode(t))});n.parentNode.replaceChild(f,n)}
+let ppQ=new Set(),ppT=0;const ppObs=new MutationObserver(ms=>{for(const m of ms){if(m.type==="characterData")ppQ.add(m.target);else m.addedNodes.forEach(x=>ppQ.add(x))}
+ if(!ppT)ppT=requestAnimationFrame(()=>{ppT=0;const q=[...ppQ];ppQ.clear();q.forEach(x=>{if(x&&x.isConnected)ppify(x)})})});
 // ---------- НАСТРОЙКИ ОНЛАЙНА ----------
 const CFG={
  firebase:{apiKey:"AIzaSyA80Osn_rxK4tfV_0yddmdw2WmHPq0ijvI",authDomain:"gacha-on-osu.firebaseapp.com",projectId:"gacha-on-osu",storageBucket:"gacha-on-osu.firebasestorage.app",messagingSenderId:"256851083330",appId:"1:256851083330:web:19df7a78f7a610417feddb",measurementId:"G-HJP2PZ8CM2"},
@@ -838,7 +847,7 @@ setInterval(()=>{if(!inBattle){const s=S.sta;tickSta();if(s!==S.sta){save();hdr(
 $("acctBtn").onclick=showAcct;$("openAcct").onclick=showAcct;$("langSel").onchange=e=>setLang(e.target.value);
 $("mktSellC").onclick=sellCardUI;$("mktSellI").onclick=sellItemUI;$("mktRef").onclick=renderMarket;$("topRef").onclick=()=>{topCache=null;renderTop()};$("arRef").onclick=()=>{arenaOpp=null;renderArena()};
 load();render();save();renderAcct();{const sp=$("splash");if(sp){sp.style.opacity=0;setTimeout(()=>sp.remove(),450)}}
-i18nObs.observe(document.body,{childList:true,subtree:true,characterData:true});setLang(PREF.lang);
+i18nObs.observe(document.body,{childList:true,subtree:true,characterData:true});setLang(PREF.lang);ppify(document.body);ppObs.observe(document.body,{childList:true,subtree:true,characterData:true});
 if(CFG.firebase&&isWeb())fbInit().then(()=>osuReturn()).catch(e=>console.warn("firebase",e));
 </script>
 </body>

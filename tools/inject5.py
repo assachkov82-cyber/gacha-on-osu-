@@ -12,6 +12,6 @@ h=(h.replace('/*FAM*/',rd('fam5.txt')).replace('/*DATA*/',rd('data5.txt'))
     .replace('/*OLD*/',rd('old.json').strip()).replace('/*COV*/',rd('covers.txt')))
 import base64
 b64=lambda f:base64.b64encode(open(os.path.join(R,'assets',f),'rb').read()).decode()
-h=h.replace('/*LOGO*/',b64('logo-512.webp')).replace('/*FAVICON*/',b64('favicon-64.png'))
+h=h.replace('/*LOGO*/',b64('logo-512.webp')).replace('/*FAVICON*/',b64('favicon-64.png')).replace('/*PPICON*/',b64('pp-64.webp'))
 open(os.path.join(R,'index.html'),'w',encoding='utf-8').write(h)
 print('index.html собран:',len(h)//1024,'КБ')
