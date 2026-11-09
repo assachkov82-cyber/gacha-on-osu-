@@ -54,6 +54,9 @@
 ## Логотип
 - `assets/` (logo.png оригинал без фона, logo-512.webp вшит base64 в CSS `.logo`, favicon-64.png вшит, icon-180.png и og.png отдаются с Vercel). Где: favicon, шапка, главная (hero), заставка загрузки `#splash`, окно аккаунта, og-превью ссылки.
 - Значки: PP — `assets/pp-64.webp` (класс `.ppi`); остальные 20 — векторные SVG из `tools/icons.py` → `assets/icons/*.svg`, вшиваются в CSS `.ic-*` при сборке. В коде остаются символы (Ⓟ 🪙 ⚡ 🗝 📘 Ⓑ ✦ 🎫 🔴 🤍 ⚪ 🌀 🧩 ⚔ ❤ 🛡 💨 ✨ 🧬 🎁 🏯), `ppify()` + MutationObserver заменяют их на значки (карта `ICMAP`). ✦ = только эссенция (у EX-навыков ★).
+- Звуки: 18 CC0-эффектов (Kenney + RPG Sound Pack, OpenGameArt) в `assets/sounds/*.mp3` (лицензия — assets/sounds/LICENSE.txt), вшиваются base64 в `SND_B64`, декодируются при первом клике; `sfx()` сначала играет файл, иначе синтез. Музыка — синтез WebAudio.
+- Повтор боя: `lastFight`/`nextFight` задаются в towerFight/locFight/dungFight/arenaFightO; кнопки «Повторить бой» / «Следующий этаж» на экране итогов.
+- Профили игроков: `showPlayer(id)` (Топ, Рынок — продавец, Арена — живой соперник); поле `osu` в `players/{uid}` (osu-вход → id, Google → ник/ID, который игрок вводит в окне аккаунта, `S.osuLink`), кнопка «Профиль на osu.ppy.sh».
 ## Прочее (v6)
 - Валюта: `S.gems` отображается как **PP (Ⓟ)**. Локация «PP-фарм карты» (последняя в `LOCS`, сортировка по уровню при выводе).
 - Баннеры профилей: `data/covers.txt` (uid36 \t хэш.ext или p<preset>/хэш.ext), ~10.5 тыс. игроков рангов A+ и B; остальным `genBg()`.

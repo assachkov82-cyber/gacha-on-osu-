@@ -1,0 +1,4 @@
+Звуковые эффекты (CC0 1.0 — общественное достояние, указание автора не требуется):
+- Kenney (www.kenney.nl): "Interface Sounds", "50 RPG Sound Effects", "85 Short Music Jingles" — opengameart.org/users/kenney
+- "RPG Sound Pack" — opengameart.org/content/rpg-sound-pack (CC0)
+Файлы перекодированы в MP3 (моно, 22 кГц) и нормализованы по громкости.
