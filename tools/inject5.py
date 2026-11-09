@@ -13,5 +13,8 @@ h=(h.replace('/*FAM*/',rd('fam5.txt')).replace('/*DATA*/',rd('data5.txt'))
 import base64
 b64=lambda f:base64.b64encode(open(os.path.join(R,'assets',f),'rb').read()).decode()
 h=h.replace('/*LOGO*/',b64('logo-512.webp')).replace('/*FAVICON*/',b64('favicon-64.png')).replace('/*PPICON*/',b64('pp-64.webp'))
+import urllib.parse
+IC=os.path.join(R,'assets','icons');css=''.join('.ic-%s{background-image:url("data:image/svg+xml,%s")}'%(f[:-4],urllib.parse.quote(open(os.path.join(IC,f)).read(),safe=' =:/"<>#'.replace('"','').replace('#',''))) for f in sorted(os.listdir(IC)) if f.endswith('.svg'))
+h=h.replace('/*ICONCSS*/',css)
 open(os.path.join(R,'index.html'),'w',encoding='utf-8').write(h)
 print('index.html собран:',len(h)//1024,'КБ')
