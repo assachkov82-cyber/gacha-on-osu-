@@ -48,7 +48,7 @@
 ## Онлайн (Firebase, проект `gacha-on-osu`)
 - Конфиг в `CFG` (src/parts/online.js → вшит в шаблон). Firebase SDK 10.12.2 грузится динамически с gstatic только для онлайна.
 - **Сайт игры: https://gacha-on-osu.vercel.app** (Vercel, автодеплой из `main` — пуш = публикация).
-- Вход: Google (popup, работает только с сайта; домен vercel должен быть в Firebase → Authentication → Settings → Authorized domains), osu! (OAuth client id 74801 → Cloudflare Worker `server/osu-auth-worker.js` выпускает Firebase custom token; `CFG.osuWorker` = https://osu-auth.as-sachkov-82.workers.dev). **Client Secret osu! никогда не класть в код/репо.**
+- Вход: Google (popup, работает только с сайта; домен vercel должен быть в Firebase → Authentication → Settings → Authorized domains), osu! (OAuth client id 74801 → Vercel-функция `api/osu/callback.js` выпускает Firebase custom token; `CFG.osuWorker` = https://gacha-on-osu.vercel.app/api/osu; секреты — в Vercel Environment Variables). Cloudflare Worker (`server/`) не используется: `*.workers.dev` заблокирован в РФ. **Client Secret osu! никогда не класть в код/репо.**
 - Firestore: `players/{uid}` (публичный профиль: name, bp=сумма BP команды, power, team, rating), `players/{uid}/private/save` (облачное сохранение), `market/{id}` (лоты, status open→sold, claimed). Правила — `firestore.rules`.
 - Резервная публикация на Firebase Hosting: `.github/workflows/deploy.yml` (только вручную, секрет `FIREBASE_SERVICE_ACCOUNT`).
 ## Прочее (v6)
@@ -59,7 +59,7 @@
 - Части кода в `src/parts/*.js` уже вклеены в шаблон; правки делать в шаблоне.
 
 ## Не сделано / идеи (роадмап)
-- Проверить вход через osu! после развёртывания Worker `osu-auth` на Cloudflare.
+- Проверить вход через osu! через Vercel-функцию (нужны env-переменные в Vercel и Callback URL в osu!).
 - Защита от читов на рынке/топе (сейчас доверие клиенту).
 - Баланс сложности: первые этажи/уровни слишком лёгкие (тестовая команда проходит 1 этаж за раунд).
 - Мобильная вёрстка — проверена, но можно полировать.

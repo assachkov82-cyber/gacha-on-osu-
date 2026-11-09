@@ -388227,7 +388227,7 @@ function setLang(l){if(!LANGS[l])l="ru";const was=LANG;LANG=l;document.documentE
 const CFG={
  firebase:{apiKey:"AIzaSyA80Osn_rxK4tfV_0yddmdw2WmHPq0ijvI",authDomain:"gacha-on-osu.firebaseapp.com",projectId:"gacha-on-osu",storageBucket:"gacha-on-osu.firebasestorage.app",messagingSenderId:"256851083330",appId:"1:256851083330:web:19df7a78f7a610417feddb",measurementId:"G-HJP2PZ8CM2"},
  osuClientId:"74801",   // Client ID приложения OAuth на osu.ppy.sh
- osuWorker:"https://osu-auth.as-sachkov-82.workers.dev"      // адрес Cloudflare Worker из server/osu-auth-worker.js, например https://osu-auth.имя.workers.dev
+ osuWorker:"https://gacha-on-osu.vercel.app/api/osu"      // адрес Cloudflare Worker из server/osu-auth-worker.js, например https://osu-auth.имя.workers.dev
 };
 const FBV="10.12.2";let FB=null,fbLoading=null;
 function fbInit(){if(FB)return Promise.resolve(FB);if(fbLoading)return fbLoading;if(!CFG.firebase)return Promise.reject(new Error("no config"));
